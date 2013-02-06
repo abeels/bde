@@ -118,6 +118,33 @@ int main(int argc, char *argv[])
     printf("TEST " __FILE__ " CASE %d\n", test);
 
     switch (test) { case 0:  // Zero is always the leading case.
+      case 5: {
+        // --------------------------------------------------------------------
+        // USAGE EXAMPLE
+        //   Extracted from component header file.
+        //
+        // Concerns:
+        //: 1 The usage example provided in the component header file compiles,
+        //:   links, and runs as shown.
+        //
+        // Plan:
+        //: 1 Incorporate usage example from header into test driver, remove
+        //:   leading comment characters, and replace 'assert' with 'ASSERT'.
+        //:   (C-1)
+        //
+        // Testing:
+        //   USAGE EXAMPLE
+        // --------------------------------------------------------------------
+
+        if (verbose) cout << endl
+                          << "USAGE EXAMPLE" << endl
+                          << "=============" << endl;
+
+///Usage
+///-----
+// In this section we show intended usage of this component.
+//
+      } break;
       case 4: {
         // --------------------------------------------------------------------
         // MACRO BDE_BUILD_TARGET_MT
