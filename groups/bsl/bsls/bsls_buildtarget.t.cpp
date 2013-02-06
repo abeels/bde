@@ -1,5 +1,29 @@
 // bsls_buildtarget.t.cpp                                             -*-C++-*-
 
+#ifdef BDE_BUILDTARGET_TEST_EXC
+#  if defined(BDE_BUILD_TARGET_EXC)
+#    undef BDE_BUILD_TARGET_EXC
+#    define BDE_BUILD_TARGET_NO_EXC
+#  else
+#    define BDE_BUILD_TARGET_EXC
+#    if defined(BDE_BUILD_TARGET_NO_EXC)
+#      undef BDE_BUILD_TARGET_NO_EXC
+#    endif
+#  endif
+#endif
+
+#ifdef BDE_BUILDTARGET_TEST_MT
+#  if defined(BDE_BUILD_TARGET_MT)
+#    undef BDE_BUILD_TARGET_MT
+#    define BDE_BUILD_TARGET_NO_MT
+#  else
+#    define BDE_BUILD_TARGET_MT
+#    if defined(BDE_BUILD_TARGET_NO_MT)
+#      undef BDE_BUILD_TARGET_NO_MT
+#    endif
+#  endif
+#endif
+
 #include <bsls_buildtarget.h>
 #include <bsls_platform.h>
 
@@ -15,6 +39,21 @@ using namespace std;
 //
 // There is nothing to test here except that the constants are defined
 // properly and according to the build-target macros.
+//
+///FURTHER TESTING
+///- - - - - - - -
+// In order to test this component properly, we would have to arrange to line
+// the test driver from two object files, each with a different setting for one
+// of the macros.  Then we would have to observe that the linker fails.
+// Neither action is in the scope of a test driver...it requires a
+// meta-test-driver test facility that can observe the compilation process.
+//
+// The solution (a la 'bslstl_map' by Chen He) is to build a test driver that
+// *does* link properly if the two macros match the settings with which
+// 'bsls_buildtarget.cpp' were built and then ask the user to manually modify
+// the code (perhaps by '-D' defining an identifier on the command line) so
+// that the test driver compiles with different settings from
+// 'bsls_buildtarget.cpp', and observe that the test driver fails to link.
 //-----------------------------------------------------------------------------
 // [ 1] bsls::BuildTargetExc::s_isBuildTargetExc
 // [ 1] bsls::BuildTargetMt::s_isBuildTargetMt
