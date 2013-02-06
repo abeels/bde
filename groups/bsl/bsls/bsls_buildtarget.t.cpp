@@ -1,5 +1,8 @@
 // bsls_buildtarget.t.cpp                                             -*-C++-*-
 
+// N.B. This test driver must manipulate the definitions of the macros
+// referenced by the component *before* the component header has a chance to
+// act on the macros.
 #ifdef BDE_BUILDTARGET_TEST_EXC
 #  if defined(BDE_BUILD_TARGET_EXC)
 #    undef BDE_BUILD_TARGET_EXC
@@ -36,13 +39,13 @@ using namespace std;
 //=============================================================================
 //                             TEST PLAN
 //-----------------------------------------------------------------------------
+// The component under test defines two macros, 'BDE_BUILD_TARGET_EXC' and
+// 'BDE_BUILD_TARGET_MT', that enforce uniform settings for exception support
+// and multi-threading support across all translation units in a program.
+// These macros operate by sabotaging the link phase of the build process
+// unless the macros are defined identically in all translation units.
 //
-// There is nothing to test here except that the constants are defined
-// properly and according to the build-target macros.
-//
-///FURTHER TESTING
-///- - - - - - - -
-// In order to test this component properly, we would have to arrange to line
+// In order to test this component properly, we would have to arrange to link
 // the test driver from two object files, each with a different setting for one
 // of the macros.  Then we would have to observe that the linker fails.
 // Neither action is in the scope of a test driver...it requires a
@@ -51,8 +54,7 @@ using namespace std;
 // The solution (a la 'bslstl_map' by Chen He) is to build a test driver that
 // *does* link properly if the two macros match the settings with which
 // 'bsls_buildtarget.cpp' were built and then ask the user to manually modify
-// the code (perhaps by '-D' defining an identifier on the command line) so
-// that the test driver compiles with different settings from
+// the code so that the test driver compiles with different settings from
 // 'bsls_buildtarget.cpp', and observe that the test driver fails to link.
 //
 // This mechanism can be enforced by creating above-the-line test cases for
@@ -61,10 +63,10 @@ using namespace std;
 // macros is defined: the test fails to build (good), or the test builds and
 // fails (bad).
 //-----------------------------------------------------------------------------
-// [ 3] BDE_BUILD_TARGET_MT
-// [ 2] BDE_BUILD_TARGET_EXC
+// [ 4] BDE_BUILD_TARGET_MT
+// [ 3] BDE_BUILD_TARGET_EXC
+// [ 2] bsls::BuildTargetMt::s_isBuildTargetMt
 // [ 1] bsls::BuildTargetExc::s_isBuildTargetExc
-// [ 1] bsls::BuildTargetMt::s_isBuildTargetMt
 //-----------------------------------------------------------------------------
 
 //==========================================================================
@@ -116,7 +118,7 @@ int main(int argc, char *argv[])
     printf("TEST " __FILE__ " CASE %d\n", test);
 
     switch (test) { case 0:  // Zero is always the leading case.
-      case 3: {
+      case 4: {
         // --------------------------------------------------------------------
         // MACRO BDE_BUILD_TARGET_MT
         //
@@ -150,7 +152,7 @@ int main(int argc, char *argv[])
 #endif
 
       } break;
-      case 2: {
+      case 3: {
         // --------------------------------------------------------------------
         // MACRO BDE_BUILD_TARGET_EXC
         //
@@ -184,21 +186,61 @@ int main(int argc, char *argv[])
 #endif
 
       } break;
-      case 1: {
+      case 2: {
+        // --------------------------------------------------------------------
+        // DATA MEMBER BuildTargetMt::s_isBuildTargetMt
+        //
+        // Concerns:
+        //  1 'bsls::BuildTargetMt::s_isBuildTargetMt' should be defined.
+        //
+        //  2 'bsls::BuildTargetMt::s_isBuildTargetMt == 1' if and only if
+        //    'BDE_BUILD_TARGET_MT' is defined.
+        //
+        // Plan:
+        //  1 Manually test the value of
+        //    'bsls::BuildTargetMt::s_isBuildTargetMt'. (C-1, C-2)
+        //
+        // Testing:
+        //   bsls::BuildTargetMt::s_isBuildTargetMt
+        // --------------------------------------------------------------------
 
-        if (verbose) printf("\nBREATHING TEST"
-                            "\n==============\n");
-
-#ifdef BDE_BUILD_TARGET_EXC
-        ASSERT(1 == bsls::BuildTargetExc::s_isBuildTargetExc);
-#else
-        ASSERT(0 == bsls::BuildTargetExc::s_isBuildTargetExc);
-#endif
+        if (verbose)
+                  printf("\nTesting bsls::BuildTargetMt::s_isBuildTargetMt"
+                         "\n==============================================\n");
 
 #ifdef BDE_BUILD_TARGET_MT
         ASSERT(1 == bsls::BuildTargetMt::s_isBuildTargetMt);
 #else
         ASSERT(0 == bsls::BuildTargetMt::s_isBuildTargetMt);
+#endif
+
+      } break;
+      case 1: {
+        // --------------------------------------------------------------------
+        // DATA MEMBER BuildTargetMt::s_isBuildTargetExc
+        //
+        // Concerns:
+        //  1 'bsls::BuildTargetMt::s_isBuildTargetExc' should be defined.
+        //
+        //  2 'bsls::BuildTargetMt::s_isBuildTargetExc == 1' if and only if
+        //    'BDE_BUILD_TARGET_EXC' is defined.
+        //
+        // Plan:
+        //  1 Manually test the value of
+        //    'bsls::BuildTargetMt::s_isBuildTargetExc'. (C-1, C-2)
+        //
+        // Testing:
+        //   bsls::BuildTargetExc::s_isBuildTargetExc
+        // --------------------------------------------------------------------
+
+        if (verbose)
+                 printf("\nTesting bsls::BuildTargetMt::s_isBuildTargetExc"
+                        "\n===============================================\n");
+
+#ifdef BDE_BUILD_TARGET_EXC
+        ASSERT(1 == bsls::BuildTargetExc::s_isBuildTargetExc);
+#else
+        ASSERT(0 == bsls::BuildTargetExc::s_isBuildTargetExc);
 #endif
 
       } break;
@@ -216,7 +258,7 @@ int main(int argc, char *argv[])
 }
 
 // ----------------------------------------------------------------------------
-// Copyright (C) 2012 Bloomberg L.P.
+// Copyright (C) 2013 Bloomberg L.P.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to
