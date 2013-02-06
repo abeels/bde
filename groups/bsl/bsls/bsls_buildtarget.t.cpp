@@ -54,7 +54,15 @@ using namespace std;
 // the code (perhaps by '-D' defining an identifier on the command line) so
 // that the test driver compiles with different settings from
 // 'bsls_buildtarget.cpp', and observe that the test driver fails to link.
+//
+// This mechanism can be enforced by creating above-the-line test cases for
+// each macro which always fail if the corresponding BDE_BUILDTARGET_TEST_*
+// macro is defined.  Therefore there are two possible states if one of the
+// macros is defined: the test fails to build (good), or the test builds and
+// fails (bad).
 //-----------------------------------------------------------------------------
+// [ 3] BDE_BUILD_TARGET_MT
+// [ 2] BDE_BUILD_TARGET_EXC
 // [ 1] bsls::BuildTargetExc::s_isBuildTargetExc
 // [ 1] bsls::BuildTargetMt::s_isBuildTargetMt
 //-----------------------------------------------------------------------------
@@ -108,6 +116,74 @@ int main(int argc, char *argv[])
     printf("TEST " __FILE__ " CASE %d\n", test);
 
     switch (test) { case 0:  // Zero is always the leading case.
+      case 3: {
+        // --------------------------------------------------------------------
+        // MACRO BDE_BUILD_TARGET_MT
+        //
+        // Concerns:
+        //  1 A program should not link when 'BDE_BUILD_TARGET_MT' is defined
+        //    in one translation unit and not defined in another.
+        //
+        //  2 A program should link when 'BDE_BUILD_TARGET_MT' is defined in
+        //    all translation units or not defined in all translation units.
+        //
+        // Plan:
+        //  1 Define a macro, 'BDE_BUILDTARGET_TEST_MT' that, when defined,
+        //    will invert the definitions of 'BDE_BUILD_TARGET_MT' and
+        //    'BDE_BUILD_TARGET_NO_MT' in this translation unit.  Build with
+        //    '-D BDE_BUILD_TARGET_NO_MT' specified on the command line and
+        //    observe that 'bsls_buildtarget.t.cpp' fails to link.  Perform a
+        //    negative test of this condition by forcing an assertion failure
+        //    if 'BDE_BUILD_TARGET_NO_MT' is defined, and allowing the test to
+        //    pass otherwise. (C-1, C-2)
+        //
+        // Testing:
+        //   BDE_BUILDTARGET_TEST_MT
+        // --------------------------------------------------------------------
+
+        if (verbose) printf("\nTesting BDE_BUILD_TARGET_MT"
+                            "\n============================\n");
+
+#ifdef BDE_BUILDTARGET_TEST_MT
+        ASSERT(0 == "bsls_buildtarget.t.cpp should not build "
+                    "with BDE_BUILDTARGET_TEST_MT");
+#endif
+
+      } break;
+      case 2: {
+        // --------------------------------------------------------------------
+        // MACRO BDE_BUILD_TARGET_EXC
+        //
+        // Concerns:
+        //  1 A program should not link when 'BDE_BUILD_TARGET_EXC' is
+        //    defined in one translation unit and not defined in another.
+        //
+        //  2 A program should link when 'BDE_BUILD_TARGET_EXC' is defined in
+        //    all translation units or not defined in all translation units.
+        //
+        // Plan:
+        //  1 Define a macro, 'BDE_BUILDTARGET_TEST_EXC' that, when defined,
+        //    will invert the definitions of 'BDE_BUILD_TARGET_EXC' and
+        //    'BDE_BUILD_TARGET_NO_EXC' in this translation unit.  Build with
+        //    '-D BDE_BUILD_TARGET_NO_EXC' specified on the command line and
+        //    observe that 'bsls_buildtarget.t.cpp' fails to link.  Perform a
+        //    negative test of this condition by forcing an assertion failure
+        //    if 'BDE_BUILD_TARGET_NO_EXC' is defined, and allowing the test to
+        //    pass otherwise. (C-1, C-2)
+        //
+        // Testing:
+        //   BDE_BUILDTARGET_TEST_EXC
+        // --------------------------------------------------------------------
+
+        if (verbose) printf("\nTesting BDE_BUILD_TARGET_EXC"
+                            "\n============================\n");
+
+#ifdef BDE_BUILDTARGET_TEST_EXC
+        ASSERT(0 == "bsls_buildtarget.t.cpp should not build "
+                    "with BDE_BUILDTARGET_TEST_EXC");
+#endif
+
+      } break;
       case 1: {
 
         if (verbose) printf("\nBREATHING TEST"
