@@ -28,10 +28,11 @@
 #endif
 
 #include <bsls_buildtarget.h>
-#include <bsls_platform.h>
 
-#include <cstdio>
-#include <cstdlib>
+#include <bsls_bsltestutil.h>  // for testing only
+
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace BloombergLP;
 using namespace std;
@@ -69,9 +70,9 @@ using namespace std;
 // [ 1] bsls::BuildTargetExc::s_isBuildTargetExc
 //-----------------------------------------------------------------------------
 
-//==========================================================================
+// ============================================================================
 //                  STANDARD BDE ASSERT TEST MACRO
-//--------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 // NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY
 // FUNCTIONS, INCLUDING IOSTREAMS.
 static int testStatus = 0;
@@ -83,14 +84,29 @@ static void aSsErT(int c, const char *s, int i) {
     }
 }
 
-# define ASSERT(X) { aSsErT(!(X), #X, __LINE__); }
+#define ASSERT       BSLS_BSLTESTUTIL_ASSERT
 
-//=============================================================================
+// ============================================================================
+//                  STANDARD BDE LOOP-ASSERT TEST MACROS
+// ----------------------------------------------------------------------------
+
+#define LOOP_ASSERT  BSLS_BSLTESTUTIL_LOOP_ASSERT
+#define LOOP2_ASSERT BSLS_BSLTESTUTIL_LOOP2_ASSERT
+#define LOOP3_ASSERT BSLS_BSLTESTUTIL_LOOP3_ASSERT
+#define LOOP4_ASSERT BSLS_BSLTESTUTIL_LOOP4_ASSERT
+#define LOOP5_ASSERT BSLS_BSLTESTUTIL_LOOP5_ASSERT
+#define LOOP6_ASSERT BSLS_BSLTESTUTIL_LOOP6_ASSERT
+#define ASSERTV      BSLS_BSLTESTUTIL_ASSERTV
+
+// ============================================================================
 //                  SEMI-STANDARD TEST OUTPUT MACROS
-//-----------------------------------------------------------------------------
-#define Q(X) printf("<| " #X " |>\n");  // Quote identifier literally.
-#define L_ __LINE__                     // current Line number
-#define T_ printf("\t");                // Print a tab (w/o newline)
+// ----------------------------------------------------------------------------
+
+#define Q   BSLS_BSLTESTUTIL_Q   // Quote identifier literally.
+#define P   BSLS_BSLTESTUTIL_P   // Print identifier and value.
+#define P_  BSLS_BSLTESTUTIL_P_  // P(X) without '\n'.
+#define T_  BSLS_BSLTESTUTIL_T_  // Print a tab (w/o newline).
+#define L_  BSLS_BSLTESTUTIL_L_  // current Line number
 
 //=============================================================================
 //                  GLOBAL TYPEDEFS/CONSTANTS FOR TESTING
@@ -136,9 +152,8 @@ int main(int argc, char *argv[])
         //   USAGE EXAMPLE
         // --------------------------------------------------------------------
 
-        if (verbose) cout << endl
-                          << "USAGE EXAMPLE" << endl
-                          << "=============" << endl;
+        if (verbose) printf("\nUSAGE EXAMPLE"
+                            "\n=============\n");
 
 ///Usage
 ///-----
@@ -171,7 +186,7 @@ int main(int argc, char *argv[])
         // --------------------------------------------------------------------
 
         if (verbose) printf("\nTesting BDE_BUILD_TARGET_MT"
-                            "\n============================\n");
+                            "\n===========================\n");
 
 #ifdef BDE_BUILDTARGET_TEST_MT
         ASSERT(0 == "bsls_buildtarget.t.cpp should not build "
