@@ -126,6 +126,11 @@ class IncludeScanner:
                     self.end = n
                     break
 
+        import re
+        if len(filter(lambda i: re.search('<bsls_bsltestutil.h>', self.includes[i][1]), self.includes)) == 0:
+            btu = '#include <bsls_bsltestutil.h>\n'
+            self.includes['btu'] = (self.identifySection(btu), btu)
+
         return self.scanCompleted()
 
     def getSection(self, section):
