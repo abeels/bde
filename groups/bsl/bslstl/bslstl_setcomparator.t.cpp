@@ -25,6 +25,50 @@
 #include <limits.h>
 #include <stdio.h>
 
+//=============================================================================
+//                              TEST PLAN
+//-----------------------------------------------------------------------------
+//                              Overview
+//                              --------
+// The component under test implements a mechanism.  The component doesn't
+// define any state explicitly, but may inherit state from its parent class,
+// which depends on the parameterized 'COMPARATOR' type.  The component doesn't
+// define any primary manipulators, but it's parent state may be set on
+// construction.
+//
+// Basic Accessors:
+//: o 'keyComparator'
+//
+// Global Concerns:
+//: o All accessor methods are declared 'const'.
+//: o Pointer/reference parameters are declared 'const'.
+//: o No memory is ever allocated.
+//-----------------------------------------------------------------------------
+// CREATORS
+// [ 3] SetComparator();
+// [ 3] explicit SetComparator(const COMPARATOR& keyComparator);
+//
+// MANIPULATORS
+// [ 4] void swap(SetComparator& other);
+//
+// ACCESSORS
+// [ 3] bool operator()(const KEY& lhs, const bslalg::RbTreeNode& rhs) const;
+// [ 3] bool operator()(const bslalg::RbTreeNode& rhs, const KEY& lhs) const;
+// [ 2] COMPARATOR keyComparator() const;
+// ----------------------------------------------------------------------------
+// [ 1] BREATHING TEST
+// [ 4] USAGE EXAMPLE
+// [ *] CONCERN: All accessor methods are declared 'const'.
+// [ *] CONCERN: Pointer/reference parameters are declared 'const'.
+// [ *] CONCERN: In no case does memory come from the global allocator.
+// [ 3] CONCERN: No memory is ever allocated from this class.
+//-----------------------------------------------------------------------------
+//=============================================================================
+
+// ============================================================================
+//                          ADL SWAP TEST HELPER
+// ----------------------------------------------------------------------------
+
 template <class TYPE>
 void invokeAdlSwap(TYPE& a, TYPE& b)
     // Exchange the values of the specified 'a' and 'b' objects using the

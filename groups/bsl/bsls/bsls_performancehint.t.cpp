@@ -8,6 +8,11 @@
 
 #include <stdlib.h>
 
+// Warning: the following 'using' declarations interfere with the testing of
+// the macros defined in this component.  Please do not uncomment them.
+// using namespace BloombergLP;
+// using namespace std;
+
 using std::cout;
 using std::cerr;
 using std::endl;

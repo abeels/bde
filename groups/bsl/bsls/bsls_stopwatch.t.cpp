@@ -8,6 +8,9 @@
 #include <stdio.h>           // printf()
 #include <stdlib.h>          // atoi()
 
+// The following OS-dependent includes are for the 'osSystemCall' helper
+// function below.
+
 #if defined BSLS_PLATFORM_OS_UNIX
     #include <sys/times.h>
     #include <unistd.h>

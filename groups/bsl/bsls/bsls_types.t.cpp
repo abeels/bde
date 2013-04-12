@@ -12,6 +12,7 @@
 #include <cstdlib>     // atoi()
 #include <cstring>     // memset(), memcmp(), strlen()
 #include <stdio.h>     // sprintf(), snprintf() [NOT <cstdio>, which does not
+                       // include 'snprintf']
 
 #if defined(BSLS_PLATFORM_CMP_MSVC)
 #define snprintf _snprintf

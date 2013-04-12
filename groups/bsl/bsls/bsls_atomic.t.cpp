@@ -8,6 +8,7 @@
 
 #include <stdlib.h>               // atoi(), rand()
 
+// For thread support
 #ifdef BSLS_PLATFORM_OS_WINDOWS
 #include <windows.h>
 typedef HANDLE thread_t;

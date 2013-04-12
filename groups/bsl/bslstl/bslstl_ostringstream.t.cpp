@@ -20,6 +20,47 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//=============================================================================
+//                                 TEST PLAN
+//-----------------------------------------------------------------------------
+//                                  Overview
+//                                  --------
+// 'bsl::basic_ostringstream' IS-A 'std::basic_ostream' that uses
+// 'bsl::basic_stringbuf' as an output buffer.  All of the functionality and
+// state of a 'bsl::basic_ostringstream' object are provided by base class
+// sub-objects.  Therefore, it is not necessary to test all of the
+// functionality derived from 'std::basic_ostream'.  It is sufficient to test
+// that the various constructors initialize object state as expected, and that
+// the manipulator and two accessors, all of which are trivial, work as
+// expected.
+//
+// Note that the 'str' accessor may use the default allocator since it returns
+// its string result by value; therefore, tests of allocator usage must take
+// this into account.
+//-----------------------------------------------------------------------------
+// CREATORS
+// [ 2] ostringstream(const A& a = A());
+// [ 4] ostringstream(openmode mask, const A& a = A());
+// [ 5] ostringstream(const STRING& s, const A& a = A());
+// [ 6] ostringstream(const STRING& s, openmode mask, const A& a = A());
+//
+// MANIPULATORS
+// [ 3] void str(const StringType& value);
+//
+// ACCESSORS
+// [ 3] StringType str() const;
+// [ 2] StreamBufType *rdbuf() const;
+// ----------------------------------------------------------------------------
+// [ 1] BREATHING TEST
+// [ 8] USAGE EXAMPLE
+// [ 7] CONCERN: Standard allocator can be used
+// [ *] CONCERN: In no case does memory come from the global allocator.
+
+//=============================================================================
+//                  STANDARD BDE ASSERT TEST MACRO
+//-----------------------------------------------------------------------------
+// NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY
+// FUNCTIONS, INCLUDING IOSTREAMS.
 static int testStatus = 0;
 
 namespace {

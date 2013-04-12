@@ -19,6 +19,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+// To resolve gcc warnings, while printing 'size_t' arguments portably on
+// Windows, we use a macro and string literal concatenation to produce the
+// correct 'printf' format flag.
 #ifdef ZU
 #undef ZU
 #endif

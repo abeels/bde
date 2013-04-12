@@ -25,6 +25,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// ============================================================================
+//                          ADL SWAP TEST HELPER
+// ----------------------------------------------------------------------------
+
+// TBD move this into its own component?
 template <class TYPE>
 void invokeAdlSwap(TYPE& a, TYPE& b)
     // Exchange the values of the specified 'a' and 'b' objects using the

@@ -7,7 +7,10 @@
 
 #include <iostream>  // 'cout'
 
+// Include 'cassert' to make sure no macros conflict between 'bsls_assert.h'
+// and 'cassert'.  This test driver does *not* invoke 'assert(expression)'.
 #include <cassert>
+
 #include <cstdio>    // 'fprintf'
 #include <cstdlib>   // 'atoi'
 #include <cstring>   // 'strcmp'

@@ -18,6 +18,7 @@
 #include <bsl_vector.h>
 
 #include <stdio.h>     // 'sprintf', 'snprintf' [NOT '<cstdio>', which does not
+                       // include 'snprintf']
 
 #include <stdlib.h>    // 'atoi'
 
