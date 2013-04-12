@@ -36,19 +36,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// To resolve gcc warnings, while printing 'size_t' arguments portably on
-// Windows, we use a macro and string literal concatenation to produce the
-// correct 'printf' format flag.
-#ifdef ZU
-#undef ZU
-#endif
-
-#if defined BSLS_PLATFORM_CMP_MSVC
-#  define ZU "%Iu"
-#else
-#  define ZU "%zu"
-#endif
-
 #if defined(BDE_BUILD_TARGET_EXC)
 enum { PLAT_EXC = 1 };
 #else
@@ -119,6 +106,12 @@ void aSsErT(bool b, const char *s, int i)
           (* (bslma::TestAllocator *) (CONTAINER).get_allocator().mechanism()))
 
 #define EXCEPTION_TEST_END  BSLMA_TESTALLOCATOR_EXCEPTION_TEST_END
+
+// ============================================================================
+//                  PRINTF FORMAT MACRO ABBREVIATIONS
+// ----------------------------------------------------------------------------
+
+#define ZU BSLS_BSLTESTUTIL_FORMAT_ZU
 
 // ============================================================================
 //                  NEGATIVE-TEST MACRO ABBREVIATIONS

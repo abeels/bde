@@ -265,58 +265,18 @@ const int NUM_ALLOCS[] = {
 //                      GLOBAL HELPER FUNCTIONS FOR TESTING
 //-----------------------------------------------------------------------------
 
-// Fundamental-type-specific print functions.
-inline void dbg_print(bool b) { printf(b ? "true" : "false"); fflush(stdout); }
-inline void dbg_print(char c) { printf("%c", c); fflush(stdout); }
-inline void dbg_print(unsigned char c) { printf("%c", c); fflush(stdout); }
-inline void dbg_print(signed char c) { printf("%c", c); fflush(stdout); }
-inline void dbg_print(short val) { printf("%d", (int)val); fflush(stdout); }
-inline void dbg_print(unsigned short val) {
-    printf("%d", (int)val); fflush(stdout);
-}
-inline void dbg_print(int val) { printf("%d", val); fflush(stdout); }
-inline void dbg_print(unsigned int val) { printf("%u", val); fflush(stdout); }
-inline void dbg_print(long val) { printf("%ld", val); fflush(stdout); }
-inline void dbg_print(unsigned long val) {
-    printf("%lu", val); fflush(stdout);
-}
-inline void dbg_print(long long val) { printf("%lld", val); fflush(stdout); }
-inline void dbg_print(unsigned long long val) {
-    printf("%llu", val); fflush(stdout);
-}
-inline void dbg_print(float val) {
-    printf("'%f'", (double)val); fflush(stdout);
-}
-inline void dbg_print(double val) { printf("'%f'", val); fflush(stdout); }
-inline void dbg_print(long double val) {
-    printf("'%Lf'", val); fflush(stdout);
-}
-inline void dbg_print(const char* s) { printf("\"%s\"", s); fflush(stdout); }
-inline void dbg_print(char* s) { printf("\"%s\"", s); fflush(stdout); }
-inline void dbg_print(void* p) { printf("%p", p); fflush(stdout); }
-
-
 // Vector-specific print function.
 template <typename TYPE, typename ALLOC>
-void dbg_print(const Vector_Imp<TYPE,ALLOC>& v)
+void debugprint(const Vector_Imp<TYPE,ALLOC>& v)
 {
     if (v.empty()) {
         printf("<empty>");
     }
     else {
         for (size_t i = 0; i < v.size(); ++i) {
-            dbg_print(v[i]);
+            debugprint(v[i]);
         }
     }
-    fflush(stdout);
-}
-
-// Generic debug print function (3-arguments).
-template <typename T>
-void dbg_print(const char* s, const T& val, const char* nl)
-{
-    printf("%s", s); dbg_print(val);
-    printf("%s", nl);
     fflush(stdout);
 }
 
@@ -498,7 +458,7 @@ bool operator<(const TestType& lhs, const TestType& rhs)
 }
 
 // TestType-specific print function.
-void dbg_print(const TestType& rhs) {
+void debugprint(const TestType& rhs) {
     printf("%c", rhs.value());
     fflush(stdout);
 }
@@ -579,7 +539,7 @@ bool operator==(const TestTypeNoAlloc& lhs,
 }
 
 // TestType-specific print function.
-void dbg_print(const TestTypeNoAlloc& rhs) {
+void debugprint(const TestTypeNoAlloc& rhs) {
     printf("%c", rhs.value());
     fflush(stdout);
 }
@@ -709,7 +669,7 @@ class BitwiseEqComparableTestType {
 };
 
 // TestType-specific print function.
-void dbg_print(const BitwiseEqComparableTestType& rhs) {
+void debugprint(const BitwiseEqComparableTestType& rhs) {
     printf("%c", rhs.value());
     fflush(stdout);
 }
@@ -6214,8 +6174,8 @@ void TestDriver<TYPE,ALLOC>::testCase8()
         gg(&mX, SPEC);  const Obj& X = mX;
 
         if (veryVerbose) {
-            printf("\t g = "); dbg_print(g(SPEC)); printf("\n");
-            printf("\tgg = "); dbg_print(X); printf("\n");
+            printf("\t g = "); debugprint(g(SPEC)); printf("\n");
+            printf("\tgg = "); debugprint(X); printf("\n");
         }
         const bsls::Types::Int64 TOTAL_BLOCKS_BEFORE =
                                                 testAllocator.numBlocksTotal();

@@ -384,48 +384,18 @@ const int NUM_ALLOCS[] = {
 //                      GLOBAL HELPER FUNCTIONS FOR TESTING
 //-----------------------------------------------------------------------------
 
-// Fundamental-type-specific print functions.
-inline void dbg_print(char c) { printf("%c", c); fflush(stdout); }
-inline void dbg_print(unsigned char c) { printf("%c", c); fflush(stdout); }
-inline void dbg_print(wchar_t c) { printf("%lc", wint_t(c)); fflush(stdout); }
-inline void dbg_print(signed char c) { printf("%c", c); fflush(stdout); }
-inline void dbg_print(short val) { printf("%d", (int)val); fflush(stdout); }
-inline void dbg_print(unsigned short val) {
-    printf("%d", (int)val); fflush(stdout);
-}
-inline void dbg_print(int val) { printf("%d", val); fflush(stdout); }
-inline void dbg_print(bsls::Types::Int64 val) {
-    printf("%lld", val); fflush(stdout);
-}
-inline void dbg_print(size_t val) { printf("%u", val); fflush(stdout); }
-inline void dbg_print(float val) {
-    printf("'%f'", (double)val); fflush(stdout);
-}
-inline void dbg_print(double val) { printf("'%f'", val); fflush(stdout); }
-inline void dbg_print(const char* s) { printf("\"%s\"", s); fflush(stdout); }
-inline void dbg_print(void* val) { printf("\"%x\"", val); fflush(stdout); }
-
 // String-specific print function.
 template <typename TYPE, typename TRAITS, typename ALLOC>
-void dbg_print(const bsl::basic_string<TYPE,TRAITS,ALLOC>& v)
+void debugprint(const bsl::basic_string<TYPE,TRAITS,ALLOC>& v)
 {
     if (v.empty()) {
         printf("<empty>");
     }
     else {
         for (size_t i = 0; i < v.size(); ++i) {
-            dbg_print(v[i]);
+            debugprint(v[i]);
         }
     }
-    fflush(stdout);
-}
-
-// Generic debug print function (3-arguments).
-template <typename T>
-void dbg_print(const char* s, const T& val, const char* nl)
-{
-    printf("%s", s); dbg_print(val);
-    printf(nl);
     fflush(stdout);
 }
 
@@ -10333,8 +10303,8 @@ void TestDriver<TYPE,TRAITS,ALLOC>::testCase8()
         gg(&mX, SPEC);  const Obj& X = mX;
 
         if (veryVerbose) {
-            printf("\t g = "); dbg_print(g(SPEC)); printf("\n");
-            printf("\tgg = "); dbg_print(X); printf("\n");
+            printf("\t g = "); debugprint(g(SPEC)); printf("\n");
+            printf("\tgg = "); debugprint(X); printf("\n");
         }
         const int TOTAL_BLOCKS_BEFORE = testAllocator.numBlocksTotal();
         const int IN_USE_BYTES_BEFORE = testAllocator.numBytesInUse();
@@ -13687,7 +13657,7 @@ int main(int argc, char *argv[])
     const bsl::string fullAddress = street + " " + state + " " + zipcode;
 //
   if (veryVerbose) {
-      dbg_print(fullAddress);
+      debugprint(fullAddress);
   }
 //..
 // The above print statement should produce a single line of output:
@@ -13701,7 +13671,7 @@ int main(int argc, char *argv[])
 //
     if (bsl::string::npos != fullAddress.find(streetName, 0)) {
       if (veryVerbose) {
-          dbg_print("The address " + fullAddress + " is located on "
+          debugprint("The address " + fullAddress + " is located on "
                     + streetName + ".");
       }
     }

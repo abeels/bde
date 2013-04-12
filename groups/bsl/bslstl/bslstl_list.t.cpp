@@ -254,22 +254,6 @@ const int  LARGE_SIZE_VALUE = 10;
 //                      GLOBAL HELPER FUNCTIONS FOR TESTING
 //-----------------------------------------------------------------------------
 
-// Fundamental-type-specific print functions.
-inline void dbg_print(char c) { printf("%c", c); fflush(stdout); }
-inline void dbg_print(unsigned char c) { printf("%c", c); fflush(stdout); }
-inline void dbg_print(signed char c) { printf("%c", c); fflush(stdout); }
-inline void dbg_print(short val) { printf("%hd", val); fflush(stdout); }
-inline void dbg_print(unsigned short val) {printf("%hu", val); fflush(stdout);}
-inline void dbg_print(int val) { printf("%d", val); fflush(stdout); }
-inline void dbg_print(unsigned int val) { printf("%u", val); fflush(stdout); }
-inline void dbg_print(long val) { printf("%lu", val); fflush(stdout); }
-inline void dbg_print(unsigned long val) { printf("%lu", val); fflush(stdout);}
-inline void dbg_print(Int64 val) { printf("%lld", val); fflush(stdout); }
-inline void dbg_print(Uint64 val) { printf("%llu", val); fflush(stdout); }
-inline void dbg_print(float val) { printf("'%f'", val); fflush(stdout); }
-inline void dbg_print(double val) { printf("'%f'", val); fflush(stdout); }
-inline void dbg_print(const char* s) { printf("\"%s\"", s); fflush(stdout); }
-
 // List-specific print function.
 template <typename TYPE, typename ALLOC>
 void dbg_print(const list<TYPE,ALLOC>& v)
@@ -284,15 +268,6 @@ void dbg_print(const list<TYPE,ALLOC>& v)
             dbg_print(*i);
         }
     }
-    fflush(stdout);
-}
-
-// Generic debug print function (3-arguments).
-template <typename T>
-void dbg_print(const char* s, const T& val, const char* nl)
-{
-    printf("%s", s); dbg_print(val);
-    printf("%s", nl);
     fflush(stdout);
 }
 

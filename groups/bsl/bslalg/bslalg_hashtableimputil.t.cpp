@@ -274,7 +274,7 @@ bool listMatches(Link *first,
     return false;
 }
 
-void debugPrint(const HashTableAnchor& anchor)
+void debugprint(const HashTableAnchor& anchor)
 {
     printf("Debug Print Anchor:\n");
     if (0 == anchor.bucketArraySize()) {

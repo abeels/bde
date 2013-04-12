@@ -93,108 +93,6 @@ void aSsErT(bool b, const char *s, int i)
 #define L_  BSLS_BSLTESTUTIL_L_  // current Line number
 
 //=============================================================================
-//                      GLOBAL HELPER FUNCTIONS FOR TESTING
-//-----------------------------------------------------------------------------
-
-// Fundamental-type-specific print functions.
-
-inline
-void dbg_print(char c)
-{
-    printf("%c", c); fflush(stdout);
-}
-
-inline
-void dbg_print(unsigned char c)
-{
-    printf("%c", c); fflush(stdout);
-}
-
-inline
-void dbg_print(signed char c)
-{
-    printf("%c", c); fflush(stdout);
-}
-
-inline
-void dbg_print(short val)
-{
-    printf("%d", (int)val); fflush(stdout);
-}
-
-inline
-void dbg_print(unsigned short val)
-{
-    printf("%d", (int)val); fflush(stdout);
-}
-
-inline
-void dbg_print(int val)
-{
-    printf("%d", val); fflush(stdout);
-}
-
-inline
-void dbg_print(unsigned val)
-{
-    printf("%u", val); fflush(stdout);
-}
-
-#ifdef _MSC_VER
-
-inline
-void dbg_print(bsls::Types::Int64 val)
-{
-    printf("%I64d", val); fflush(stdout);
-}
-
-inline
-void dbg_print(bsls::Types::Uint64 val)
-{
-    printf("%I64u", val); fflush(stdout);
-}
-
-#else
-
-inline
-void dbg_print(bsls::Types::Int64 val)
-{
-    printf("%lld", val); fflush(stdout);
-}
-
-inline
-void dbg_print(bsls::Types::Uint64 val)
-{
-    printf("%llu", val); fflush(stdout);
-}
-
-#endif
-
-inline
-void dbg_print(float val)
-{
-    printf("'%f'", (double)val); fflush(stdout);
-}
-
-inline
-void dbg_print(double val)
-{
-    printf("'%f'", val); fflush(stdout);
-}
-
-inline
-void dbg_print(const char *s)
-{
-    printf("\"%s\"", s); fflush(stdout);
-}
-
-inline
-void dbg_print(const void  *p)
-{
-    printf("\"%p\"", p); fflush(stdout);
-}
-
-//=============================================================================
 //                     TEST APPARATUS FOR USAGE EXAMPLE
 //-----------------------------------------------------------------------------
 
@@ -1439,12 +1337,12 @@ void testLexicographicalBuiltin(bool                    verboseFlag,
                 printf("LHS = [ ");
                 for (k = 0; k < LHS_LEN; ++k) {
                     printf("%s", k ? ", " : "");
-                    dbg_print(LHS_BEGIN[k]);
+                    debugprint(LHS_BEGIN[k]);
                 }
                 printf(" ]\nRHS = [ ");
                 for (k = 0; k < RHS_LEN; ++k) {
                     printf("%s", k ? ", " : "");
-                    dbg_print(RHS_BEGIN[k]);
+                    debugprint(RHS_BEGIN[k]);
                 }
                 printf(" ]\nEXP = %d, result = %d\n", EXP, result);
             }

@@ -41,19 +41,6 @@
 #include <stdlib.h>
 #include <string.h> // for 'strcmp'
 
-// To resolve gcc warnings, while printing 'size_t' arguments portably on
-// Windows, we use a macro and string literal concatenation to produce the
-// correct 'printf' format flag.
-#ifdef ZU
-#undef ZU
-#endif
-
-#if defined BSLS_PLATFORM_CMP_MSVC
-#  define ZU "%Iu"
-#else
-#  define ZU "%zu"
-#endif
-
 // We note that certain test cases rely on the reference collapsing rules
 // that were adopted shortly after C++03, and so are not a feature of many
 // older compilers, or perhaps compilers in strictly conforming modes.  We
@@ -305,6 +292,12 @@ void aSsErT(bool b, const char *s, int i)
 
 #define BSL_TF_EQ      BSLTF_TEMPLATETESTFACILITY_COMPARE_EQUAL
 #define BSL_TF_NOT_EQ  BSLTF_TEMPLATETESTFACILITY_COMPARE_NOT_EQUAL
+
+// ============================================================================
+//                  PRINTF FORMAT MACRO ABBREVIATIONS
+// ----------------------------------------------------------------------------
+
+#define ZU BSLS_BSLTESTUTIL_FORMAT_ZU
 
 // ============================================================================
 //                  NEGATIVE-TEST MACRO ABBREVIATIONS

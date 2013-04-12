@@ -78,26 +78,10 @@ void aSsErT(bool b, const char *s, int i)
 //                      GLOBAL PRINT FUNCTIONS
 //-----------------------------------------------------------------------------
 
-// Fundamental-type-specific print functions.
-inline void dbg_print(char c) { printf("%c", c); fflush(stdout); }
-inline void dbg_print(unsigned char c) { printf("%c", c); fflush(stdout); }
-inline void dbg_print(signed char c) { printf("%c", c); fflush(stdout); }
-inline void dbg_print(short val) { printf("%d", (int)val); fflush(stdout); }
-inline void dbg_print(unsigned short val) {
-    printf("%d", (int)val); fflush(stdout);
-}
-inline void dbg_print(int val) { printf("%d", val); fflush(stdout); }
-inline void dbg_print(size_t val) { printf("%u", val); fflush(stdout); }
-inline void dbg_print(float val) {
-    printf("'%f'", (double)val); fflush(stdout);
-}
-inline void dbg_print(double val) { printf("'%f'", val); fflush(stdout); }
-inline void dbg_print(const char* s) { printf("\"%s\"", s); fflush(stdout); }
-
 // Iterator-specific print function.
 template <class VALUE_TYPE, int BLOCK_LENGTH>
 void
-dbg_print(const bslalg::DequeIterator<VALUE_TYPE, BLOCK_LENGTH>& iter)
+debugprint(const bslalg::DequeIterator<VALUE_TYPE, BLOCK_LENGTH>& iter)
 {
     if (iter.blockPtr() && iter.valuePtr()) {
 #ifdef BSLS_PLATFORM_CPU_64_BIT
@@ -112,16 +96,6 @@ dbg_print(const bslalg::DequeIterator<VALUE_TYPE, BLOCK_LENGTH>& iter)
         printf("[0x00000000,0x00000000]");
         fflush(stdout);
     }
-}
-
-
-// Generic debug print function (3-arguments).
-template <typename T>
-void dbg_print(const char* s, const T& val, const char* nl)
-{
-    printf("%s", s); dbg_print(val);
-    printf("%s", nl);
-    fflush(stdout);
 }
 
 //=============================================================================
