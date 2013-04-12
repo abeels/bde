@@ -1,0 +1,242 @@
+#!/usr/bin/env python2.6
+
+class IncludeScanner:
+    cHeaders = {
+        'cassert' : None,
+        'cctype' : None,
+        'cerrno' : None,
+        'cfloat' : None,
+        'ciso646' : None,
+        'climits' : None,
+        'clocale' : None,
+        'cmath' : None,
+        'codecvt' : None,
+        'csetjmp' : None,
+        'csignal' : None,
+        'cstdarg' : None,
+        'cstdbool' : None,
+        'cstddef' : None,
+        'cstdint' : None,
+        'cstdio' : None,
+        'cstdlib' : None,
+        'cstring' : None,
+        'ctime' : None,
+        'cuchar' : None,
+        'cwchar' : None,
+        'cwctype' : None,
+    }
+
+    def __init__(self, source):
+        from itertools import imap
+        import re
+
+        self.source = source
+        self.input = source.xreadlines()
+        self.begin = None
+        self.end = None
+        self.foundStart = False
+        self.includes = dict()
+
+        headline = self.input.next()
+
+        m = re.match(' *// *([a-z]+)_', headline)
+        self.package = m.group(1) if m else None
+        assert self.package
+
+        m = re.match(' *// *[a-z]+_([^.]+)\.', headline)
+        self.component = m.group(1) if m else None
+        assert self.component
+
+        return
+
+    def isInclude(self, l):
+        import re
+
+        return re.match(' *#include', l)
+
+    def isBlank(self, l):
+        import re
+
+        return re.match(' *$', l) or re.match(' *//', l)
+
+    def getPackageName(self, l):
+        import re
+
+        m = re.match(' *#include *<([a-z]+)_', l)
+        name = m.group(1) if m else None
+
+        return name
+
+    def getComponentName(self, l):
+        import re
+
+        m = re.match(' *#include *<[a-z]+_([^.]+)\.', l)
+        name = m.group(1) if m else None
+
+        return name
+
+    def identifySection(self, l):
+        import re
+
+        package = self.getPackageName(l)
+
+        if not package:
+            m = re.search('<([^.]+)>', l)
+            if m:
+                if m.group(1) in self.cHeaders:
+                    return 'c_library'
+                else:
+                    return 'cpp_library'
+            else:
+                return 'library'
+
+        elif package == self.package:
+            component = self.getComponentName(l)
+            if component == self.component:
+                return 'self'
+            else:
+                return 'own_package'
+        elif package == "bsl":
+            return 'bsl'
+        elif re.match('bsl', package):
+            return 'other_package'
+        else:
+            from sys import stderr
+
+            print >>stderr, package, l
+            raise Exception("Failed to identify package")
+
+    def scanCompleted(self):
+        return self.begin is not None and self.end is not None
+
+    def scan(self):
+        from itertools import izip, count
+
+        self.source.seek(0)
+        for n, l in izip(count(0), self.input):
+            if not self.foundStart and self.isInclude(l):
+                self.foundStart = True
+                self.begin = n
+            if self.foundStart:
+                if self.isInclude(l):
+                    self.includes[n] = (self.identifySection(l), l);
+                elif self.isBlank(l):
+                    pass
+                else:
+                    self.end = n
+                    break
+
+        return self.scanCompleted()
+
+    def getSection(self, section):
+        from itertools import ifilter
+
+        # Next, print siblings.
+        indexes = ifilter(lambda i: self.includes[i][0] == section, self.includes)
+        return sorted([self.includes[i][1] for i in indexes])
+
+    def check(self):
+        from itertools import islice
+
+        if self.begin and self.end:
+            self.source.seek(0)
+            lines = [l.rstrip() for l in islice(self.input, self.end + 1)]
+            #lines = map(lambda l: l.rstrip(), source.readlines())
+            def printWithLineNumber(n, l):
+                print "{0:4} {1}".format(n, l)
+
+            def printExpression(s):
+                print "[{0}]".format(s)
+
+            print "{0}, {1}".format(self.begin, self.end)
+            print "-- output:"
+            for n, l in enumerate(lines[self.begin:self.end], self.begin + 1):
+                printWithLineNumber(n, l)
+            # Sanity check
+            print "--- end point check:"
+            printWithLineNumber(self.end + 1, lines[self.end])
+            print "--- output check:"
+            for l in lines[:self.end + 1]:
+                print "[{0:1} {1:1}] {2}".format(bool(self.isInclude(l)), bool(self.isBlank(l)), l)
+
+if __name__ == "__main__":
+    import sys
+
+    # Get input file
+
+    source = open(sys.argv[1], "r+")
+
+    # Find #include files
+    scanner = IncludeScanner(source)
+    scanner.scan()
+
+    if False:
+        scanner.check()
+
+    # Get whole file
+    source.seek(0)
+    lines = source.readlines()
+
+    # First, print anything before the includes begin
+    output = lines[:scanner.begin]
+
+    # Next, print self.
+    for l in scanner.getSection('self'):
+        output.append(l)
+
+    # Next, print siblings.
+    section = scanner.getSection('own_package')
+    if section:
+        output.append('\n')
+
+        for l in section:
+            output.append(l)
+
+    # Next, print other bsl packages.
+    section = scanner.getSection('other_package')
+    if section:
+        output.append('\n')
+
+        for l in section:
+            output.append(l)
+
+    # Next, print 'bsl' package.
+    section = scanner.getSection('bsl')
+    if section:
+        output.append('\n')
+
+        for l in section:
+            output.append(l)
+
+    # Next, print other libraries.
+    section = scanner.getSection('cpp_library')
+    if section:
+        output.append('\n')
+
+        for l in section:
+            output.append(l)
+
+    section = scanner.getSection('c_library')
+    if section:
+        output.append('\n')
+
+        for l in section:
+            output.append(l)
+
+    section = scanner.getSection('library')
+    if section:
+        output.append('\n')
+
+        for l in section:
+            output.append(l)
+            
+    output.append('\n')
+
+    # Finally, print the rest of the file
+    output.extend(lines[scanner.end:])
+
+    source.seek(0)
+    source.truncate()
+    source.writelines(output)
+    source.close()
+
