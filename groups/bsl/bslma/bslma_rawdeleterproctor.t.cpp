@@ -8,10 +8,10 @@
 
 #include <bsls_bsltestutil.h>
 
+#include <string>   // breathing test, should be replaceable
+
 #include <stdio.h>
 #include <stdlib.h>
-
-#include <string>   // breathing test, should be replaceable
 
 using namespace BloombergLP;
 

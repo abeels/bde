@@ -2,13 +2,14 @@
 
 #include <bslstl_stringref.h>
 
+#include <bsls_bsltestutil.h>
 #include <bsls_nativestd.h>
 
 #include <algorithm>
+#include <iomanip>
 #include <iostream>
 #include <map>
 #include <sstream>
-#include <iomanip>
 
 #include <stdio.h>       // sprintf()
 #include <stdlib.h>      // atoi()

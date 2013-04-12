@@ -2,6 +2,8 @@
 
 #include <bslalg_typetraitbitwisemoveable.h>
 
+#include <bsls_bsltestutil.h>
+
 #include <cstdio>
 #include <cstdlib>
 

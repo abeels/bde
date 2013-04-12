@@ -4,10 +4,11 @@
 
 #include <bsls_bsltestutil.h>
 
+#include <new>
+
 #include <stdio.h>   // 'printf'
 #include <stdlib.h>  // 'atoi'
 #include <string.h>
-#include <new>
 
 using namespace BloombergLP;
 using namespace bsl;

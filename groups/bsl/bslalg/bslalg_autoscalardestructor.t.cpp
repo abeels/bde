@@ -3,11 +3,13 @@
 #include <bslalg_autoscalardestructor.h>
 
 #include <bslalg_scalarprimitives.h>             // for testing only
+
 #include <bslma_allocator.h>                     // for testing only
 #include <bslma_default.h>                       // for testing only
 #include <bslma_testallocator.h>                 // for testing only
 #include <bslma_testallocatorexception.h>        // for testing only
 #include <bsls_alignmentutil.h>                  // for testing only
+#include <bsls_bsltestutil.h>
 #include <bsls_stopwatch.h>                      // for testing only
 
 #include <ctype.h>      // isalpha()

@@ -8,8 +8,6 @@
 #include <stdlib.h>     // 'atoi'
 #include <string.h>     // 'strcmp'
 
-// These 4 compilers cannot handle conversions to/from cv-qualified types
-// in all cases.
 #if defined(BSLS_PLATFORM_CMP_SUN)  \
  || defined(BSLS_PLATFORM_CMP_MSVC) \
  || defined(BSLS_PLATFORM_CMP_HP)   \

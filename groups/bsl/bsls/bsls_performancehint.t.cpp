@@ -1,14 +1,12 @@
 // bsls_performancehint.t.cpp                                         -*-C++-*-
 #include <bsls_performancehint.h>
+
+#include <bsls_bsltestutil.h>
 #include <bsls_stopwatch.h>
 
-#include <stdlib.h>
 #include <iostream>
 
-// Warning: the following 'using' declarations interfere with the testing of
-// the macros defined in this component.  Please do not uncomment them.
-// using namespace BloombergLP;
-// using namespace std;
+#include <stdlib.h>
 
 using std::cout;
 using std::cerr;

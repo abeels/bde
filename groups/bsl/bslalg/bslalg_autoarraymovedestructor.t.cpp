@@ -15,6 +15,7 @@
 #include <bsls_alignmentutil.h>                  // for testing only
 #include <bsls_assert.h>
 #include <bsls_asserttest.h>                     // for testing only
+#include <bsls_bsltestutil.h>
 #include <bsls_stopwatch.h>                      // for testing only
 
 #include <ctype.h>    // isalpha()

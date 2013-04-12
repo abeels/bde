@@ -2,9 +2,10 @@
 
 #include <bsls_alignedbuffer.h>
 
-#include <bsls_alignmenttotype.h>
 #include <bsls_alignmentfromtype.h>
+#include <bsls_alignmenttotype.h>
 #include <bsls_alignmentutil.h>
+#include <bsls_bsltestutil.h>
 
 #include <cstdio>
 #include <cstdlib>

@@ -11,7 +11,6 @@
 #include <bslma_defaultallocatorguard.h>
 #include <bslma_testallocator.h>
 #include <bslma_testallocatormonitor.h>
-
 #include <bsls_asserttest.h>
 #include <bsls_bsltestutil.h>
 
@@ -20,9 +19,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// To resolve gcc warnings, while printing 'size_t' arguments portably on
-// Windows, we use a macro and string literal concatenation to produce the
-// correct 'printf' format flag.
 #ifdef ZU
 #undef ZU
 #endif

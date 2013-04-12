@@ -2,9 +2,12 @@
 
 #include <bslmf_tag.h>
 
+#include <bsls_bsltestutil.h>
+
+#include <iostream>
+
 #include <stdlib.h>      // 'atoi'
 #include <string.h>      // 'strcmp'
-#include <iostream>
 
 using namespace BloombergLP;
 using namespace std;

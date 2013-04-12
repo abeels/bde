@@ -7,9 +7,10 @@
 
 #include <bsls_bsltestutil.h>
 
+#include <typeinfo>
+
 #include <stdio.h>   // 'printf'
 #include <stdlib.h>  // 'atoi'
-#include <typeinfo>
 
 using namespace BloombergLP;
 

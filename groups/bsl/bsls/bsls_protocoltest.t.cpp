@@ -1,9 +1,12 @@
 // bsls_protocoltest.t.cpp                                            -*-C++-*-
 
 #include <bsls_protocoltest.h>
+
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>
 
 #include <new>
+
 #include <stdio.h>
 #include <stdlib.h>
 

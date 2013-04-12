@@ -1,75 +1,29 @@
 // bslstl_setcomparator.t.cpp                                         -*-C++-*-
 #include <bslstl_setcomparator.h>
 
-#include <bslstl_allocatortraits.h>
 #include <bslstl_allocator.h>
+#include <bslstl_allocatortraits.h>
 #include <bslstl_treenode.h>
 
 #include <bslalg_rbtreeanchor.h>
 #include <bslalg_rbtreenode.h>
 #include <bslalg_rbtreeutil.h>
-
-#include <bsltf_templatetestfacility.h>
-
 #include <bslma_allocator.h>
 #include <bslma_default.h>
 #include <bslma_defaultallocatorguard.h>
 #include <bslma_testallocator.h>
 #include <bslma_testallocatormonitor.h>
-
 #include <bsls_assert.h>
 #include <bsls_bsltestutil.h>
 #include <bsls_util.h>
+#include <bsltf_templatetestfacility.h>
 
 #include <algorithm>
 #include <functional>
-#include <limits.h>
-#include <stdio.h>
 #include <typeinfo>
 
-//=============================================================================
-//                              TEST PLAN
-//-----------------------------------------------------------------------------
-//                              Overview
-//                              --------
-// The component under test implements a mechanism.  The component doesn't
-// define any state explicitly, but may inherit state from its parent class,
-// which depends on the parameterized 'COMPARATOR' type.  The component doesn't
-// define any primary manipulators, but it's parent state may be set on
-// construction.
-//
-// Basic Accessors:
-//: o 'keyComparator'
-//
-// Global Concerns:
-//: o All accessor methods are declared 'const'.
-//: o Pointer/reference parameters are declared 'const'.
-//: o No memory is ever allocated.
-//-----------------------------------------------------------------------------
-// CREATORS
-// [ 3] SetComparator();
-// [ 3] explicit SetComparator(const COMPARATOR& keyComparator);
-//
-// MANIPULATORS
-// [ 4] void swap(SetComparator& other);
-//
-// ACCESSORS
-// [ 3] bool operator()(const KEY& lhs, const bslalg::RbTreeNode& rhs) const;
-// [ 3] bool operator()(const bslalg::RbTreeNode& rhs, const KEY& lhs) const;
-// [ 2] COMPARATOR keyComparator() const;
-// ----------------------------------------------------------------------------
-// [ 1] BREATHING TEST
-// [ 4] USAGE EXAMPLE
-// [ *] CONCERN: All accessor methods are declared 'const'.
-// [ *] CONCERN: Pointer/reference parameters are declared 'const'.
-// [ *] CONCERN: In no case does memory come from the global allocator.
-// [ 3] CONCERN: No memory is ever allocated from this class.
-//-----------------------------------------------------------------------------
-//=============================================================================
-
-// ============================================================================
-//                          ADL SWAP TEST HELPER
-// ----------------------------------------------------------------------------
+#include <limits.h>
+#include <stdio.h>
 
 template <class TYPE>
 void invokeAdlSwap(TYPE& a, TYPE& b)

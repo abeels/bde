@@ -4,8 +4,11 @@
 
 #include <bslmf_nil.h>  // for testing only
 
-#include <stdlib.h>
+#include <bsls_bsltestutil.h>
+
 #include <iostream>
+
+#include <stdlib.h>
 
 using namespace BloombergLP;
 using namespace std;

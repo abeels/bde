@@ -2,13 +2,13 @@
 #include <bslalg_functoradapter.h>
 
 #include <bslmf_issame.h>
-
+#include <bsls_bsltestutil.h>
 #include <bsls_nativestd.h>
+
+#include <functional>
 
 #include <stdio.h>
 #include <stdlib.h>
-
-#include <functional>
 
 using namespace BloombergLP;
 using namespace std;

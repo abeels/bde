@@ -2,11 +2,12 @@
 
 #include <bsls_platform.h>
 
+#include <bsls_bsltestutil.h>
+
 #include <iostream>
 
 #include <stdio.h>      // 'printf'
 #include <stdlib.h>     // 'atoi'
-
 
 using namespace BloombergLP;
 using namespace std;

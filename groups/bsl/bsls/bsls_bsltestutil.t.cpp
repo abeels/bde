@@ -9,8 +9,8 @@
 #include <stdio.h>
 #include <stdlib.h>    // abort
 #include <string.h>    // strnlen
-#include <sys/types.h> // struct stat: required on Sun and Windows only
 #include <sys/stat.h>  // struct stat: required on Sun and Windows only
+#include <sys/types.h> // struct stat: required on Sun and Windows only
 
 #if defined(BSLS_PLATFORM_OS_WINDOWS)
 # include <windows.h>  // MAX_PATH

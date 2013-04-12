@@ -2,16 +2,15 @@
 #include <bsls_assert.h>
 
 #include <bsls_asserttestexception.h>
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>
 
-// Include 'cassert' to make sure no macros conflict between 'bsls_assert.h'
-// and 'cassert'.  This test driver does *not* invoke 'assert(expression)'.
-#include <cassert>
+#include <iostream>  // 'cout'
 
+#include <cassert>
 #include <cstdio>    // 'fprintf'
 #include <cstdlib>   // 'atoi'
 #include <cstring>   // 'strcmp'
-#include <iostream>  // 'cout'
 
 #ifdef BSLS_PLATFORM_OS_UNIX
 #include <signal.h>

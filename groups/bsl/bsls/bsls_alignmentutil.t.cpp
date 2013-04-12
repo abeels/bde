@@ -5,8 +5,8 @@
 #include <bsls_alignmentfromtype.h>
 #include <bsls_asserttest.h>
 #include <bsls_asserttestexception.h>
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>
-
 #include <bsls_types.h>  // for testing only
 
 #include <iostream>

@@ -6,28 +6,21 @@
 #include <bslalg_bidirectionallinklistutil.h>
 #include <bslalg_bidirectionalnode.h>
 #include <bslalg_hashtablebucket.h>
-
 #include <bslalg_hastrait.h>
 
 #include <bslma_default.h>
 #include <bslma_defaultallocatorguard.h>
 #include <bslma_testallocator.h>
 #include <bslma_testallocatormonitor.h>
-
 #include <bslmf_assert.h>
-
 #include <bsls_assert.h>
 #include <bsls_asserttest.h>
-#include <bsls_platform.h>
 #include <bsls_bsltestutil.h>
+#include <bsls_platform.h>
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-// ============================================================================
-//                          ADL SWAP TEST HELPER
-// ----------------------------------------------------------------------------
 
 using namespace BloombergLP;
 

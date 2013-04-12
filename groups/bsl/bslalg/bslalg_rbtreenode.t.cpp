@@ -2,23 +2,23 @@
 
 #include <bslalg_rbtreenode.h>
 
-#include <bslalg_arrayprimitives.h>
 #include <bslalg_arraydestructionprimitives.h>
+#include <bslalg_arrayprimitives.h>
 #include <bslalg_swaputil.h>
+
 #include <bslma_allocator.h>
 #include <bslma_testallocator.h>
-
 #include <bsls_assert.h>
 #include <bsls_asserttest.h>
 #include <bsls_bsltestutil.h>
 
 #include <algorithm>
 
+#include <ctype.h>
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 using namespace BloombergLP;
 using namespace std;

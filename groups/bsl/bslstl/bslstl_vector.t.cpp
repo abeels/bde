@@ -12,29 +12,26 @@
 #include <bslma_newdeleteallocator.h>
 #include <bslma_testallocator.h>           // for testing only
 #include <bslma_testallocatorexception.h>  // for testing only
-
 #include <bslmf_issame.h>                  // for testing only
-
 #include <bsls_alignmentutil.h>
 #include <bsls_assert.h>
 #include <bsls_asserttest.h>
+#include <bsls_bsltestutil.h>
 #include <bsls_exceptionutil.h>
 #include <bsls_objectbuffer.h>
 #include <bsls_platform.h>
-#include <bsls_types.h>
 #include <bsls_stopwatch.h>                // for testing only
+#include <bsls_types.h>
 #include <bsls_util.h>
-
 #include <bsltf_nontypicaloverloadstesttype.h>
 
 #include <iterator>   // 'iterator_traits'
 #include <stdexcept>  // 'length_error', 'out_of_range'
 
 #include <cctype>
+#include <cstddef>
 #include <cstdio>
 #include <cstdlib>
-#include <cstddef>
-
 
 using namespace BloombergLP;
 using namespace std;

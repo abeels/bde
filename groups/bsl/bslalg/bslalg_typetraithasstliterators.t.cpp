@@ -2,6 +2,8 @@
 
 #include <bslalg_typetraithasstliterators.h>
 
+#include <bsls_bsltestutil.h>
+
 #include <cstdio>
 #include <cstdlib>
 

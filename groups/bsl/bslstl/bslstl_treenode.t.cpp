@@ -1,29 +1,28 @@
 // bslstl_treenode.t.cpp                                              -*-C++-*-
 #include <bslstl_treenode.h>
 
-#include <bslstl_allocatortraits.h>
 #include <bslstl_allocator.h>
+#include <bslstl_allocatortraits.h>
 #include <bslstl_string.h>
 
 #include <bslalg_rbtreeanchor.h>
 #include <bslalg_rbtreenode.h>
 #include <bslalg_rbtreeutil.h>
-
 #include <bslma_allocator.h>
-#include <bslma_testallocator.h>
 #include <bslma_defaultallocatorguard.h>
-
+#include <bslma_testallocator.h>
 #include <bsls_assert.h>
 #include <bsls_bsltestutil.h>
 #include <bsls_util.h>
 
 #include <algorithm>
 #include <functional>
+
+#include <ctype.h>
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 using namespace BloombergLP;
 using namespace std;

@@ -8,9 +8,7 @@
 #include <bslma_default.h>
 #include <bslma_defaultallocatorguard.h>
 #include <bslma_testallocator.h>
-
 #include <bslmf_isconst.h>
-
 #include <bsls_asserttest.h>
 #include <bsls_bsltestutil.h>
 #include <bsls_platform.h>

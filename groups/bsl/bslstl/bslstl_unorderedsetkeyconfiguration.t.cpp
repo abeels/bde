@@ -4,7 +4,6 @@
 #include <bslmf_isconst.h>
 #include <bslmf_issame.h>
 #include <bslmf_removecv.h>
-
 #include <bsls_asserttest.h>
 #include <bsls_bsltestutil.h>
 

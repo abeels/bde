@@ -1,10 +1,13 @@
 // bsls_asserttestexception.t.cpp                                     -*-C++-*-
 #include <bsls_asserttestexception.h>
 
-#include <cstdlib>
-#include <cstring>
+#include <bsls_bsltestutil.h>
+
 #include <iostream>
 #include <ostream>
+
+#include <cstdlib>
+#include <cstring>
 
 using namespace BloombergLP;
 using namespace std;

@@ -1,10 +1,10 @@
 // bslalg_dequeprimitives.t.cpp                                       -*-C++-*-
 
 #include <bslalg_dequeprimitives.h>
-#include <bslalg_dequeiterator.h>
 
-#include <bslalg_scalarprimitives.h>
+#include <bslalg_dequeiterator.h>
 #include <bslalg_scalardestructionprimitives.h>
+#include <bslalg_scalarprimitives.h>
 
 #include <bslma_allocator.h>              // for testing only
 #include <bslma_default.h>                // for testing only
@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <cstdlib>     // atoi()
 #include <cstring>     // strlen()
+
 #include <ctype.h>     // isalpha()
 
 using namespace BloombergLP;

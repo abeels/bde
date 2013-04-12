@@ -1,14 +1,14 @@
 // bsls_exceptionutil.t.cpp                                           -*-C++-*-
 
 #include <bsls_exceptionutil.h>
-#include <bsls_platform.h>
+
 #include <bsls_bsltestutil.h>
+#include <bsls_platform.h>
 
 #include <setjmp.h>
 #include <signal.h>
-
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 using namespace BloombergLP;

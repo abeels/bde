@@ -1,14 +1,16 @@
 // bslalg_dequeiterator.t.cpp                                         -*-C++-*-
 
 #include <bslalg_dequeiterator.h>
-#include <bslalg_scalarprimitives.h>
+
 #include <bslalg_scalardestructionprimitives.h>
+#include <bslalg_scalarprimitives.h>
 
 #include <bslmf_issame.h>
+#include <bsls_bsltestutil.h>
 
-#include <cstring>
-#include <cstdlib>
 #include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 using namespace BloombergLP;
 using namespace std;

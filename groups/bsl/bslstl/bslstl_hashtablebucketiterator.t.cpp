@@ -8,16 +8,12 @@
 #include <bslalg_hashtableanchor.h>
 #include <bslalg_hashtablebucket.h>
 #include <bslalg_hashtableimputil.h>
-
 #include <bslma_testallocator.h>
-
 #include <bslmf_assert.h>
 #include <bslmf_issame.h>
-
 #include <bsls_asserttest.h>
 #include <bsls_bsltestutil.h>
 #include <bsls_util.h>
-
 #include <bsltf_templatetestfacility.h>
 
 #include <stddef.h>

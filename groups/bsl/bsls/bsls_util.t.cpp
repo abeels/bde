@@ -3,10 +3,10 @@
 
 #include <bsls_bsltestutil.h>
 
+#include <new>   // required to support use of "placement new"
+
 #include <stdio.h>
 #include <stdlib.h>
-
-#include <new>   // required to support use of "placement new"
 
 using namespace BloombergLP;
 

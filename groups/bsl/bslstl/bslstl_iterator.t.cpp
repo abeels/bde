@@ -1,12 +1,16 @@
 // bslstl_iterator.t.cpp                                              -*-C++-*-
 
 #include <bslstl_iterator.h>
+
 #include <bslstl_allocator.h>
+
 #include <bslma_default.h>
+#include <bsls_bsltestutil.h>
+
+#include <iostream>
 
 #include <cstdio>
 #include <cstdlib>
-#include <iostream>
 
 using namespace BloombergLP;
 using namespace std;

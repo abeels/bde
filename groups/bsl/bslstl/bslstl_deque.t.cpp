@@ -1,8 +1,9 @@
 // bslstl_deque.t.cpp                                                 -*-C++-*-
 
 #include <bslstl_deque.h>
-#include <bslstl_iterator.h>
+
 #include <bslstl_forwarditerator.h>
+#include <bslstl_iterator.h>
 #include <bslstl_randomaccessiterator.h>
 #include <bslstl_string.h>                 // for testing only
 #include <bslstl_vector.h>                 // for testing only
@@ -15,19 +16,20 @@
 #include <bslmf_ispointer.h>               // for testing only
 #include <bslmf_issame.h>                  // for testing only
 #include <bsls_alignmentutil.h>
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>
-#include <bsls_types.h>                    // for testing only
 #include <bsls_stopwatch.h>                // for testing only
+#include <bsls_types.h>                    // for testing only
 #include <bsls_util.h>
 
 #include <iterator>
+#include <new>  // bad_alloc
+#include <stdexcept>
 
+#include <cctype>
+#include <cstddef>
 #include <cstdio>
 #include <cstdlib>
-#include <cstddef>
-#include <cctype>
-#include <stdexcept>
-#include <new>  // bad_alloc
 
 using namespace BloombergLP;
 using namespace std;

@@ -6,25 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//=============================================================================
-//                              TEST PLAN
-//-----------------------------------------------------------------------------
-//                              Overview
-//                              --------
-// The component under test provides no functionality per se.  Its sole purpose
-// is to provide forward declarations, in its header file (for the convenience
-// of 'bsl_iosfwd.h' in package 'bsl+bslhdrs'), of the standard types provided
-// by the four 'bslstl' components that implement string-based streams.
-// Therefore, it is sufficient to verify, via appropriate declarations, that
-// the forward declarations are visible as expected.
-//-----------------------------------------------------------------------------
-// [ 1] BREATHING TEST
-
-//=============================================================================
-//                  STANDARD BDE ASSERT TEST MACRO
-//-----------------------------------------------------------------------------
-// NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY
-// FUNCTIONS, INCLUDING IOSTREAMS.
 static int testStatus = 0;
 
 namespace {

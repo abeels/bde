@@ -2,12 +2,14 @@
 
 #include <bslalg_constructorproxy.h>
 
-#include <bslma_usesbslmaallocator.h>            // for testing only
 #include <bslma_allocator.h>                     // for testing only
 #include <bslma_default.h>                       // for testing only
 #include <bslma_testallocator.h>                 // for testing only
+#include <bslma_usesbslmaallocator.h>            // for testing only
+#include <bsls_bsltestutil.h>
 
 #include <iostream>
+
 #include <cstdlib>
 
 using namespace BloombergLP;

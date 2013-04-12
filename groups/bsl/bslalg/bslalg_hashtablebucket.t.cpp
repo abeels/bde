@@ -8,7 +8,6 @@
 
 #include <bslma_default.h>
 #include <bslma_testallocator.h>
-
 #include <bsls_asserttest.h>
 #include <bsls_bsltestutil.h>
 

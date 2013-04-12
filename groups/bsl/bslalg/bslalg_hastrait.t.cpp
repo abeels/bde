@@ -1,9 +1,11 @@
 // bslalg_hastrait.t.cpp                                              -*-C++-*-
 
 #include <bslalg_hastrait.h>
+
 #include <bslalg_typetraits.h>
 
 #include <bslma_testallocator.h>
+#include <bsls_bsltestutil.h>
 #include <bsls_objectbuffer.h>
 #include <bsls_platform.h>
 

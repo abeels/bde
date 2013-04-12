@@ -2,31 +2,23 @@
 #include <bslstl_set.h>
 
 #include <bslalg_rangecompare.h>
-
-#include <bslma_default.h>
 #include <bslma_allocator.h>
-#include <bslma_testallocator.h>
+#include <bslma_default.h>
 #include <bslma_defaultallocatorguard.h>
+#include <bslma_testallocator.h>
 #include <bslma_testallocatormonitor.h>
 #include <bslma_usesbslmaallocator.h>
-
-#include <bslmf_issame.h>
 #include <bslmf_haspointersemantics.h>
-
+#include <bslmf_issame.h>
 #include <bsls_alignmentutil.h>
 #include <bsls_asserttest.h>
 #include <bsls_bsltestutil.h>
+#include <bsltf_stdtestallocator.h>
+#include <bsltf_templatetestfacility.h>
+#include <bsltf_testvaluesarray.h>
 
 #include <algorithm>
 #include <functional>
-
-#include <bsltf_templatetestfacility.h>
-#include <bsltf_testvaluesarray.h>
-#include <bsltf_stdtestallocator.h>
-
-// ============================================================================
-//                          ADL SWAP TEST HELPER
-// ----------------------------------------------------------------------------
 
 template <class TYPE>
 void invokeAdlSwap(TYPE& a, TYPE& b)

@@ -2,6 +2,8 @@
 
 #include <bslmf_haspointersemantics.h>
 
+#include <bsls_bsltestutil.h>
+
 int main() {
     return -1;
 }

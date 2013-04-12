@@ -2,6 +2,8 @@
 
 #include <bslmf_nil.h>
 
+#include <bsls_bsltestutil.h>
+
 using namespace BloombergLP;
 // using namespace std;
 

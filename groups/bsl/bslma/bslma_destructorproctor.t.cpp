@@ -8,11 +8,11 @@
 
 #include <bsls_bsltestutil.h>
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include <new>
 #include <string>  // For breathing test only - TBD rewrite without
+
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace BloombergLP;
 

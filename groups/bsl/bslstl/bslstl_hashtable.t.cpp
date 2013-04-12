@@ -9,7 +9,6 @@
 #include <bslalg_bidirectionallink.h>
 #include <bslalg_bidirectionallinklistutil.h>
 #include <bslalg_swaputil.h>
-
 #include <bslma_default.h>
 #include <bslma_defaultallocatorguard.h>
 #include <bslma_exceptionguard.h>
@@ -17,18 +16,15 @@
 #include <bslma_testallocator.h>
 #include <bslma_testallocatormonitor.h>
 #include <bslma_usesbslmaallocator.h>
-
 #include <bslmf_conditional.h>
 #include <bslmf_isfunction.h>
 #include <bslmf_istriviallycopyable.h>
 #include <bslmf_istriviallydefaultconstructible.h>
 #include <bslmf_removeconst.h>
-
 #include <bsls_asserttest.h>
-#include <bsls_buildtarget.h>
 #include <bsls_bsltestutil.h>
+#include <bsls_buildtarget.h>
 #include <bsls_platform.h>
-
 #include <bsltf_convertiblevaluewrapper.h>
 #include <bsltf_degeneratefunctor.h>
 #include <bsltf_evilbooleantype.h>
@@ -45,9 +41,6 @@
 #include <stdlib.h>
 #include <string.h> // for 'strcmp'
 
-// To resolve gcc warnings, while printing 'size_t' arguments portably on
-// Windows, we use a macro and string literal concatenation to produce the
-// correct 'printf' format flag.
 #ifdef ZU
 #undef ZU
 #endif

@@ -2,12 +2,14 @@
 
 #include <bsls_alignmentimp.h>
 
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>
+
+#include <iostream>
 
 #include <cstddef>     // offsetof() macro
 #include <cstdlib>     // atoi()
 #include <cstring>
-#include <iostream>
 
 using namespace BloombergLP;
 using namespace std;

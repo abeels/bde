@@ -5,9 +5,12 @@
 #include <bslmf_assert.h>   // for testing only
 #include <bslmf_issame.h>   // for testing only
 
+#include <bsls_bsltestutil.h>
+
+#include <iostream>
+
 #include <stdio.h>   // 'printf'
 #include <stdlib.h>  // 'atoi'
-#include <iostream>
 
 using namespace BloombergLP;
 using namespace std;

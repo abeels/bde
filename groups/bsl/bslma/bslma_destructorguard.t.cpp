@@ -5,13 +5,13 @@
 #include <bslma_default.h>
 #include <bslma_testallocator.h>
 
-#include <bsls_objectbuffer.h>
 #include <bsls_bsltestutil.h>
+#include <bsls_objectbuffer.h>
+
+#include <vector>       // std::vector for the usage example
 
 #include <stdio.h>
 #include <stdlib.h>
-
-#include <vector>       // std::vector for the usage example
 
 using namespace BloombergLP;
 

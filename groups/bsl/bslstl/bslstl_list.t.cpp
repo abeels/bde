@@ -1,5 +1,6 @@
 // bslstl_list.t.cpp                                                  -*-C++-*-
 #include <bslstl_list.h>
+
 #include <bslstl_iterator.h>
 
 #include <bslma_allocator.h>
@@ -8,26 +9,24 @@
 #include <bslma_newdeleteallocator.h>
 #include <bslma_testallocator.h>           // for testing only
 #include <bslma_testallocatorexception.h>  // for testing only
-
 #include <bslmf_assert.h>                  // for testing only
 #include <bslmf_issame.h>                  // for testing only
-
 #include <bsls_alignmentutil.h>
+#include <bsls_bsltestutil.h>
 #include <bsls_objectbuffer.h>
 #include <bsls_platform.h>
 #include <bsls_stopwatch.h>                // for testing only
 #include <bsls_types.h>
-
 #include <bsltf_nonassignabletesttype.h>   // for testing only
 
-#include <stdexcept>  // 'length_error', 'out_of_range'
 #include <algorithm>  // 'next_permutation'
 #include <functional> // 'less'
+#include <stdexcept>  // 'length_error', 'out_of_range'
 
 #include <cctype>
+#include <cstddef>
 #include <cstdio>
 #include <cstdlib>
-#include <cstddef>
 
 using namespace BloombergLP;
 using namespace std;

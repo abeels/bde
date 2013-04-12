@@ -2,9 +2,11 @@
 
 #include <bslscm_version.h>
 
+#include <bsls_bsltestutil.h>
+
+#include <cstdio>
 #include <cstdlib>     // atoi()
 #include <cstring>
-#include <cstdio>
 
 using namespace BloombergLP;
 

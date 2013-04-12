@@ -2,6 +2,8 @@
 
 #include <bsls_nativestd.h>
 
+#include <bsls_bsltestutil.h>
+
 namespace std {
     // SomeStdType in the native 'std' namespace.
     struct SomeStdType { };

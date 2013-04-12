@@ -3,17 +3,14 @@
 #include <bslstl_equalto.h>
 
 #include <bslalg_scalarprimitives.h>
-
 #include <bslma_default.h>
 #include <bslma_defaultallocatorguard.h>
 #include <bslma_testallocator.h>
 #include <bslma_testallocatormonitor.h>
-
-#include <bslmf_issame.h>
 #include <bslmf_isbitwisemoveable.h>
+#include <bslmf_issame.h>
 #include <bslmf_istriviallycopyable.h>
 #include <bslmf_istriviallydefaultconstructible.h>
-
 #include <bsls_assert.h>
 #include <bsls_asserttest.h>
 #include <bsls_bsltestutil.h>

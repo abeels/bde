@@ -3,15 +3,17 @@
 #include <bslstl_bidirectionaliterator.h>
 
 #include <bslstl_iterator.h>   // for testing only
+
 #include <bslmf_issame.h>
+#include <bsls_bsltestutil.h>
 #include <bsls_unspecifiedbool.h>
 
-#include <cstdio>
-#include <cstdlib>
+#include <algorithm>  // std::reverse
 #include <iostream>
 #include <sstream>
 
-#include <algorithm>  // std::reverse
+#include <cstdio>
+#include <cstdlib>
 
 using namespace BloombergLP;
 using namespace std;

@@ -5,23 +5,13 @@
 // *** The format of this component test driver is non-standard. ***
 
 // #include <bsls_ident.h>      // included below in usage example.
-#include <cstdlib>              // 'atoi'
+
+#include <bsls_bsltestutil.h>
+
 #include <iostream>
 
-// using namespace BloombergLP;
+#include <cstdlib>              // 'atoi'
 
-//=============================================================================
-//                             TEST PLAN
-//-----------------------------------------------------------------------------
-// This component does not have any easy way to do runtime checks.
-//
-//-----------------------------------------------------------------------------
-// [ 1] Breathing Test (nothing)
-//-----------------------------------------------------------------------------
-
-//==========================================================================
-//                  STANDARD BDE ASSERT TEST MACRO
-//--------------------------------------------------------------------------
 static int testStatus = 0;
 
 static void aSsErT(int c, const char *s, int i) {

@@ -2,6 +2,8 @@
 
 #include <bsls_atomicoperations_sparc32_sun_cc.h>
 
+#include <bsls_bsltestutil.h>
+
 #include <cstdlib>
 
 using namespace BloombergLP;

@@ -2,6 +2,8 @@
 
 #include <bslalg_typetraitusesbslmaallocator.h>
 
+#include <bsls_bsltestutil.h>
+
 #include <cstdio>
 #include <cstdlib>
 

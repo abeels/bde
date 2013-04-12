@@ -2,22 +2,20 @@
 #include <bsltf_templatetestfacility.h>
 
 #include <bslalg_scalardestructionprimitives.h>
-
 #include <bslma_default.h>
 #include <bslma_defaultallocatorguard.h>
 #include <bslma_testallocator.h>
-
 #include <bslmf_assert.h>
 #include <bslmf_issame.h>
-
 #include <bsls_assert.h>
 #include <bsls_bsltestutil.h>
 #include <bsls_objectbuffer.h>
 #include <bsls_util.h>
 
+#include <typeinfo>
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <typeinfo>
 
 using namespace BloombergLP;
 using namespace BloombergLP::bsltf;

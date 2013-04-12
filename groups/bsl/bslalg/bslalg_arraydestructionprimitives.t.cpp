@@ -4,20 +4,21 @@
 
 #include <bslalg_scalarprimitives.h>             // for testing only
 
-#include <bslmf_istriviallycopyable.h>           // for testing only
 #include <bslma_allocator.h>                     // for testing only
 #include <bslma_default.h>                       // for testing only
 #include <bslma_testallocator.h>                 // for testing only
+#include <bslmf_istriviallycopyable.h>           // for testing only
 #include <bsls_alignmentutil.h>                  // for testing only
-#include <bsls_objectbuffer.h>                   // for testing only
 #include <bsls_assert.h>                         // for testing only
 #include <bsls_asserttest.h>                     // for testing only
+#include <bsls_bsltestutil.h>
+#include <bsls_objectbuffer.h>                   // for testing only
 #include <bsls_types.h>                          // for testing only
 
+#include <ctype.h>     // isalpha()
 #include <stdio.h>
 #include <stdlib.h>    // atoi()
 #include <string.h>    // strlen()
-#include <ctype.h>     // isalpha()
 
 using namespace BloombergLP;
 

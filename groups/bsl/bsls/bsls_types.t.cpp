@@ -2,15 +2,16 @@
 
 #include <bsls_types.h>
 
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>     // for testing only
+
+#include <iostream>
+#include <limits>
 
 #include <cstddef>     // offsetof(), std::ptrdiff_t
 #include <cstdlib>     // atoi()
 #include <cstring>     // memset(), memcmp(), strlen()
-#include <iostream>
-#include <limits>
 #include <stdio.h>     // sprintf(), snprintf() [NOT <cstdio>, which does not
-                       // include 'snprintf']
 
 #if defined(BSLS_PLATFORM_CMP_MSVC)
 #define snprintf _snprintf

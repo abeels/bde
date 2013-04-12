@@ -1,13 +1,16 @@
 // bslmf_arraytopointer.t.cpp                                         -*-C++-*-
 
 #include <bslmf_arraytopointer.h>
+
 #include <bslmf_issame.h>
 
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>            // for testing only
 
-#include <stdlib.h>    // atoi()
 #include <iostream>
 #include <typeinfo>
+
+#include <stdlib.h>    // atoi()
 
 using namespace BloombergLP;
 using namespace std;

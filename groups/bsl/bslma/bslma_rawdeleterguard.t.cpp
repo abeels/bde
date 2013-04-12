@@ -8,11 +8,11 @@
 
 #include <bsls_bsltestutil.h>
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include <deque>    // usage example
 #include <string>   // breathing test, should be replaceable
+
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace BloombergLP;
 using std::deque;

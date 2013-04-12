@@ -7,10 +7,10 @@
 #include <bsls_asserttest.h>
 #include <bsls_bsltestutil.h>
 
+#include <new>
+
 #include <stdio.h>
 #include <stdlib.h>
-
-#include <new>
 
 using namespace BloombergLP;
 //using namespace std;

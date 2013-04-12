@@ -2,6 +2,8 @@
 
 #include <bslmf_metaint.h>
 
+#include <bsls_bsltestutil.h>
+
 #include <limits.h>
 #include <stdio.h>   // 'printf'
 #include <stdlib.h>  // 'atoi'

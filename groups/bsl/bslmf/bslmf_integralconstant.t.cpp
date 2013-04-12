@@ -4,9 +4,9 @@
 
 #include <bsls_bsltestutil.h>
 
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 
 using namespace BloombergLP;
 

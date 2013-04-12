@@ -1,10 +1,10 @@
 // bslstl_stdexceptutil.t.cpp                                         -*-C++-*-
 #include <bslstl_stdexceptutil.h>
 
+#include <bsls_bsltestutil.h>
 #include <bsls_exceptionutil.h>
 
 #include <stdexcept>    //  yes, we want the native std here
-
 
 #include <cstdio>
 #include <cstdlib>

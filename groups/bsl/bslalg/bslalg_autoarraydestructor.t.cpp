@@ -5,8 +5,8 @@
 #include <bslalg_scalarprimitives.h>             // for testing only
 
 #include <bslma_allocator.h>                     // for testing only
-#include <bslma_deallocatorproctor.h>            // for testing only
 #include <bslma_autodestructor.h>                // for testing only
+#include <bslma_deallocatorproctor.h>            // for testing only
 #include <bslma_deallocatorproctor.h>            // for testing only
 #include <bslma_default.h>                       // for testing only
 #include <bslma_testallocator.h>                 // for testing only
@@ -15,11 +15,13 @@
 #include <bsls_alignmentutil.h>                  // for testing only
 #include <bsls_assert.h>                         // for testing only
 #include <bsls_asserttest.h>                     // for testing only
+#include <bsls_bsltestutil.h>
 #include <bsls_stopwatch.h>                      // for testing only
 
 #include <cstdio>
 #include <cstdlib>     // atoi()
 #include <cstring>     // strlen()
+
 #include <ctype.h>     // isalpha()
 
 using namespace BloombergLP;

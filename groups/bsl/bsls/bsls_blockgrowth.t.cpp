@@ -2,6 +2,8 @@
 
 #include <bsls_blockgrowth.h>
 
+#include <bsls_bsltestutil.h>
+
 #include <iostream>
 
 #include <cstdlib>

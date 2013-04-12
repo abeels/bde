@@ -2,8 +2,11 @@
 
 #include <bslmf_ispointertomember.h>
 
-#include <stdlib.h>    // atoi()
+#include <bsls_bsltestutil.h>
+
 #include <iostream>
+
+#include <stdlib.h>    // atoi()
 
 using namespace BloombergLP;
 using namespace std;

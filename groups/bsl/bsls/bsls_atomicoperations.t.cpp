@@ -1,10 +1,13 @@
 // bsls_atomicoperations.t.cpp                                        -*-C++-*-
 
 #include <bsls_atomicoperations.h>
+
+#include <bsls_bsltestutil.h>
 #include <bsls_types.h>
 
-#include <stdlib.h> // atoi
 #include <iostream>
+
+#include <stdlib.h> // atoi
 
 #if defined(BSLS_PLATFORM_OS_SOLARIS)
 #include <thread.h>  // thr_setconcurrency

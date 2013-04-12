@@ -1,22 +1,25 @@
 // bslalg_containerbase.t.cpp                                         -*-C++-*-
 
 #include <bslalg_containerbase.h>
+
 #include <bslalg_typetraits.h>
+
 #include <bslma_allocator.h>
 #include <bslma_default.h>
 #include <bslma_testallocator.h>
 #include <bslma_testallocatormonitor.h>
-#include <bslmf_nestedtraitdeclaration.h>
-#include <bslmf_istriviallycopyable.h>
-#include <bslmf_isbitwisemoveable.h>
 #include <bslmf_isbitwiseequalitycomparable.h>
+#include <bslmf_isbitwisemoveable.h>
+#include <bslmf_istriviallycopyable.h>
+#include <bslmf_nestedtraitdeclaration.h>
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>
 #include <bsls_util.h>
-#include <bsls_bsltestutil.h>
+
+#include <new>
 
 #include <cstdio>
 #include <cstdlib>
-#include <new>
 
 using namespace BloombergLP;
 using namespace std;

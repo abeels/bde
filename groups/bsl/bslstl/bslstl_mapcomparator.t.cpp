@@ -1,37 +1,30 @@
 // bslstl_mapcomparator.t.cpp                                         -*-C++-*-
 #include <bslstl_mapcomparator.h>
 
-#include <bslstl_allocatortraits.h>
 #include <bslstl_allocator.h>
+#include <bslstl_allocatortraits.h>
 #include <bslstl_treenode.h>
 
 #include <bslalg_rbtreeanchor.h>
 #include <bslalg_rbtreenode.h>
 #include <bslalg_rbtreeutil.h>
-
-#include <bsltf_templatetestfacility.h>
-
 #include <bslma_allocator.h>
 #include <bslma_default.h>
 #include <bslma_defaultallocatorguard.h>
 #include <bslma_testallocator.h>
 #include <bslma_testallocatormonitor.h>
-
 #include <bsls_assert.h>
 #include <bsls_bsltestutil.h>
+#include <bsltf_templatetestfacility.h>
 
 #include <algorithm>
 #include <functional>
+#include <typeinfo>
+
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <typeinfo>
 
-// ============================================================================
-//                          ADL SWAP TEST HELPER
-// ----------------------------------------------------------------------------
-
-// TBD move this into its own component?
 template <class TYPE>
 void invokeAdlSwap(TYPE& a, TYPE& b)
     // Exchange the values of the specified 'a' and 'b' objects using the

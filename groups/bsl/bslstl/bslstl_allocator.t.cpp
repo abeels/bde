@@ -7,13 +7,14 @@
 #include <bslma_defaultallocatorguard.h>  // testing only
 #include <bslma_testallocator.h>          // testing only
 #include <bslmf_issame.h>                 // testing only
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>                // testing only
+
+#include <limits>
+#include <new>
 
 #include <cstdio>
 #include <cstdlib>
-
-#include <new>
-#include <limits>
 
 using namespace BloombergLP;
 using namespace std;

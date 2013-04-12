@@ -2,36 +2,31 @@
 
 #include <bslstl_priorityqueue.h>
 
-#include <bslstl_vector.h>
 #include <bslstl_allocator.h>
-#include <bslstl_iterator.h>
 #include <bslstl_forwarditerator.h>
+#include <bslstl_iterator.h>
+#include <bslstl_vector.h>
 
 #include <bslma_allocator.h>
 #include <bslma_default.h>
 #include <bslma_defaultallocatorguard.h>   // for testing only
-#include <bslma_newdeleteallocator.h>
 #include <bslma_mallocfreeallocator.h>
+#include <bslma_newdeleteallocator.h>
 #include <bslma_testallocator.h>           // for testing only
-#include <bslma_testallocatormonitor.h>    // for testing only
 #include <bslma_testallocatorexception.h>  // for testing only
-
+#include <bslma_testallocatormonitor.h>    // for testing only
 #include <bsls_assert.h>
 #include <bsls_asserttest.h>
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>
-#include <bsls_types.h>
 #include <bsls_stopwatch.h>                // for testing only
+#include <bsls_types.h>
 #include <bsls_util.h>
-
-#include <algorithm>
-
+#include <bsltf_stdtestallocator.h>
 #include <bsltf_templatetestfacility.h>
 #include <bsltf_testvaluesarray.h>
-#include <bsltf_stdtestallocator.h>
 
-// ============================================================================
-//                          ADL SWAP TEST HELPER
-// ----------------------------------------------------------------------------
+#include <algorithm>
 
 template <class TYPE>
 void invokeAdlSwap(TYPE& a, TYPE& b)

@@ -2,9 +2,12 @@
 
 #include <bsls_alignment.h>
 
-#include <cstring>     // strcmp()
-#include <cstdlib>     // atoi()
+#include <bsls_bsltestutil.h>
+
 #include <iostream>
+
+#include <cstdlib>     // atoi()
+#include <cstring>     // strcmp()
 
 using namespace BloombergLP;
 using namespace std;

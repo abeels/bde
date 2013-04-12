@@ -4,9 +4,10 @@
 
 #include <bsls_bsltestutil.h>    // for testing purposes only
 
+#include <typeinfo>     // for typeid, but bad levelization.
+
 #include <stdio.h>
 #include <stdlib.h>     // atoi()
-#include <typeinfo>     // for typeid, but bad levelization.
 
 using namespace BloombergLP;
 

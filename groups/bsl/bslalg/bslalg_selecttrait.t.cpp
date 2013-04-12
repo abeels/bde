@@ -7,7 +7,7 @@
 #include <bslalg_typetraitusesbslmaallocator.h>
 
 #include <bslmf_issame.h>
-
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>
 
 #include <cstdio>

@@ -11,6 +11,7 @@
 #include <bslma_testallocator.h>
 #include <bslma_testallocatorexception.h>
 #include <bslma_usesbslmaallocator.h>
+#include <bsls_bsltestutil.h>
 
 #include <cstdio>
 #include <cstdlib>

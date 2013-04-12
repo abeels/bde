@@ -1,17 +1,21 @@
 // bslma_testallocator.t.cpp                                          -*-C++-*-
 
 #include <bslma_testallocator.h>
+
 #include <bslma_testallocatorexception.h>
 
+#include <bsls_alignmentutil.h>
+#include <bsls_bsltestutil.h>
 #include <bsls_exceptionutil.h>
 #include <bsls_objectbuffer.h>
 #include <bsls_platform.h>
-#include <bsls_alignmentutil.h>
+
+#include <iostream>
 
 #include <cstdio>               // 'printf'
 #include <cstdlib>              // 'atoi'
 #include <cstring>              // 'memset', 'strlen'
-#include <iostream>
+
 #ifdef BSLS_PLATFORM_OS_UNIX
 #include <unistd.h>             // 'pipe', 'close', 'dup'
 #endif

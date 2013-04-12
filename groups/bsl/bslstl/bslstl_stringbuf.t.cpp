@@ -1,57 +1,24 @@
 // bslstl_stringbuf.t.cpp                                             -*-C++-*-
 #include <bslstl_stringbuf.h>
-#include <bslstl_string.h>
+
 #include <bslstl_allocator.h>
+#include <bslstl_string.h>
+
 #include <bslma_allocator.h>
 #include <bslma_default.h>
-#include <bslma_testallocator.h>
 #include <bslma_defaultallocatorguard.h>
+#include <bslma_testallocator.h>
+#include <bsls_bsltestutil.h>
 
+#include <algorithm>
 #include <iostream>
 #include <istream>
 #include <ostream>
 #include <string>
-#include <algorithm>
 
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-
-//=============================================================================
-//                                 TEST PLAN
-//-----------------------------------------------------------------------------
-//                                  Overview
-//                                  --------
-// Testing the 'stringbuf' class is a little tricky because its implementation
-// is in protected virtual methods.  First, we use a class derived from the
-// 'stringbuf' so that it can access the protected members of 'stringbuf', and
-// test 'stringbuf' methods through the derived class.  Second, we use public
-// methods of 'stringbuf' to exercise the functionality implemented in the
-// protected methods.  Those public methods are to create 'stringbuf', perform
-// input from 'stringbuf' and perform output into 'stringbuf'.
-// =============================
-// STRINGBUF:
-// [ 2] stringbuf(const ALLOCATOR&)
-// [ 2] stringbuf(ios_base::openmode, const ALLOCATOR&)
-// [ 2] stringbuf(const string&, const ALLOCATOR&)
-// [ 2] stringbuf(const string&, ios_base::openmode, const ALLOCATOR&)
-// [ 3] seekoff(streamoff, ios_base::seekdir, ios_base::openmode)
-// [ 4] seekpos(streempos, ios_base::openmode)
-// [ 5] xsgetn(char *, streamsize)
-// [ 6] underflow()
-// [ 7] uflow()
-// [ 8] pbackfail(int)
-// [ 9] xsputn(const char *, streamsize)
-// [10] overflow(int)
-//-----------------------------------------------------------------------------
-// [11] OUTPUT TO STRINGBUF VIA PUBLIC INTERFACE
-// [12] INPUT FROM STRINGBUF VIA PUBLIC INTERFACE
-// [13] USAGE EXAMPLE
-// [ 1] BREATHING TEST
-
-//==========================================================================
-//                       STANDARD BDE ASSERT TEST MACRO
-//--------------------------------------------------------------------------
 
 using std::printf;
 using std::fflush;

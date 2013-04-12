@@ -2,6 +2,7 @@
 
 #include <bsls_objectbuffer.h>
 
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>          // for testing only
 
 #include <stddef.h>

@@ -5,6 +5,8 @@
 #include <bslmf_issame.h>    // for testing only
 #include <bslmf_typelist.h>
 
+#include <bsls_bsltestutil.h>
+
 #include <stdio.h>           // printf
 #include <stdlib.h>          // atoi
 

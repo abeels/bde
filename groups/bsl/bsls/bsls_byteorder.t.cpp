@@ -2,13 +2,14 @@
 
 #include <bsls_byteorder.h>
 
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>
-
 #include <bsls_types.h>
 
-#include <stdlib.h>     // atoi()
-#include <stdio.h>      // printf()
 #include <iostream>
+
+#include <stdio.h>      // printf()
+#include <stdlib.h>     // atoi()
 
 #ifdef BSLS_PLATFORM_OS_UNIX   // htons(), htonl(), ntohs(), ntohl()
 #include <arpa/inet.h>

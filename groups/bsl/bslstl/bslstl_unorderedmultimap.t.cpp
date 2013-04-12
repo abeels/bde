@@ -6,18 +6,15 @@
 #include <bslstl_string.h>
 
 #include <bslalg_swaputil.h>
-
 #include <bslma_default.h>
 #include <bslma_defaultallocatorguard.h>
 #include <bslma_mallocfreeallocator.h>
 #include <bslma_testallocator.h>
 #include <bslma_testallocatormonitor.h>
 #include <bslma_usesbslmaallocator.h>
-
 #include <bsls_assert.h>
 #include <bsls_bsltestutil.h>
 #include <bsls_objectbuffer.h>
-
 #include <bsltf_stdtestallocator.h>
 #include <bsltf_templatetestfacility.h>
 #include <bsltf_testvaluesarray.h>
@@ -25,9 +22,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// To resolve gcc warnings, while printing 'size_t' arguments portably on
-// Windows, we use a macro and string literal concatenation to produce the
-// correct 'printf' format flag.
 #ifdef ZU
 #undef ZU
 #endif

@@ -4,11 +4,13 @@
 #include <bslmf_isarray.h>
 #include <bslmf_issame.h>          // for testing only
 
+#include <bsls_bsltestutil.h>
 #include <bsls_platform.h>
 
-#include <stdlib.h>    // atoi()
 #include <iostream>
 #include <typeinfo>
+
+#include <stdlib.h>    // atoi()
 
 using namespace BloombergLP;
 using namespace std;

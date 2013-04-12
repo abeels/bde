@@ -6,25 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//=============================================================================
-//                              TEST PLAN
-//-----------------------------------------------------------------------------
-//                              Overview
-//                              --------
-// The component under test provides no functionality per se.  Its sole purpose
-// is to include, in its own header file (for the convenience of
-// 'bsl_sstream.h' in package 'bsl+bslhdrs'), the header files of the four
-// 'bslstl' components that implement string-based streams.  Therefore, it is
-// sufficient to verify, via appropriate declarations, that the four header
-// files are included as expected.
-//-----------------------------------------------------------------------------
-// [ 1] BREATHING TEST
-
-//=============================================================================
-//                  STANDARD BDE ASSERT TEST MACRO
-//-----------------------------------------------------------------------------
-// NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY
-// FUNCTIONS, INCLUDING IOSTREAMS.
 static int testStatus = 0;
 
 namespace {

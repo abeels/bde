@@ -1,12 +1,13 @@
 // bsls_atomic.t.cpp                                                  -*-C++-*-
 #include <bsls_atomic.h>
 
+#include <bsls_bsltestutil.h>
 #include <bsls_types.h>
 
-#include <stdlib.h>               // atoi(), rand()
 #include <iostream>
 
-// For thread support
+#include <stdlib.h>               // atoi(), rand()
+
 #ifdef BSLS_PLATFORM_OS_WINDOWS
 #include <windows.h>
 typedef HANDLE thread_t;

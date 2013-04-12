@@ -8,11 +8,13 @@
 
 #include <bsls_assert.h>
 #include <bsls_asserttest.h>
+#include <bsls_bsltestutil.h>
 #include <bsls_types.h>
+
+#include <iostream>
 
 #include <cstdlib>     // 'atoi'
 #include <cstring>     // 'strlen'
-#include <iostream>
 
 using namespace BloombergLP;
 using namespace std;

@@ -9,7 +9,6 @@
 #include <bslma_defaultallocatorguard.h>
 #include <bslma_testallocator.h>
 #include <bslma_testallocatormonitor.h>
-
 #include <bsls_asserttest.h>
 #include <bsls_bsltestutil.h>
 

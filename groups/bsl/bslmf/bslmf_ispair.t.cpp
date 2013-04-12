@@ -2,6 +2,8 @@
 
 #include <bslmf_ispair.h>
 
+#include <bsls_bsltestutil.h>
+
 int main() {
     return -1;
 }

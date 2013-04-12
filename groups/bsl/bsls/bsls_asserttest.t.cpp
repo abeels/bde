@@ -6,7 +6,6 @@
 #include <bsls_macroincrement.h>
 #include <bsls_platform.h>
 
-// limit ourselves to the "C" library for packages below 'bslstl'
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>

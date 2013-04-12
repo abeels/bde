@@ -2,6 +2,8 @@
 
 #include <bsls_atomicoperations_powerpc64_aix_xlc.h>
 
+#include <bsls_bsltestutil.h>
+
 #include <cstdlib>
 
 using namespace BloombergLP;

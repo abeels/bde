@@ -2,6 +2,8 @@
 
 #include <bslalg_typetraithaspointersemantics.h>
 
+#include <bsls_bsltestutil.h>
+
 #include <cstdio>
 #include <cstdlib>
 

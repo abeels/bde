@@ -12,25 +12,27 @@
 #include <bslma_testallocatorexception.h>  // for testing only
 #include <bslmf_issame.h>                  // for testing only
 #include <bsls_alignmentutil.h>            // for testing only
-#include <bsls_platform.h>
-#include <bsls_types.h>                    // for testing only
-#include <bsls_objectbuffer.h>
-#include <bsls_stopwatch.h>
 #include <bsls_assert.h>
 #include <bsls_asserttest.h>
+#include <bsls_bsltestutil.h>
+#include <bsls_objectbuffer.h>
+#include <bsls_platform.h>
+#include <bsls_stopwatch.h>
+#include <bsls_types.h>                    // for testing only
 
 #include <algorithm>
-#include <cctype>
-#include <cstdio>
-#include <cstdlib>
-#include <cstddef>
-#include <cstring>
 #include <iomanip>
-#include <ostream>
 #include <istream>
+#include <ostream>
 #include <sstream>
 #include <stdexcept>
 #include <typeinfo>
+
+#include <cctype>
+#include <cstddef>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 #if defined(std)
 // This is a workaround for the way test drivers are built in an IDE-friendly

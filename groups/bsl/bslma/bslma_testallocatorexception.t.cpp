@@ -4,9 +4,12 @@
 
 #include <bslma_allocator.h>
 
-#include <cstring>     // memset()
-#include <cstdlib>     // atoi()
+#include <bsls_bsltestutil.h>
+
 #include <iostream>
+
+#include <cstdlib>     // atoi()
+#include <cstring>     // memset()
 
 using namespace BloombergLP;
 using namespace std;

@@ -3,10 +3,11 @@
 #include <bslalg_dequeimputil.h>
 
 #include <bslmf_issame.h>
+#include <bsls_bsltestutil.h>
 
-#include <cstring>
-#include <cstdlib>
 #include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 using namespace BloombergLP;
 using namespace std;

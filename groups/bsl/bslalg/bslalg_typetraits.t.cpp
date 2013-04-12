@@ -2,24 +2,25 @@
 
 #include <bslalg_typetraits.h>
 
-#include <bslma_testallocator.h>
-#include <bslmf_isconvertible.h>
-#include <bslmf_metaint.h>
-#include <bslmf_removecvq.h>
-#include <bslmf_if.h>
-#include <bsls_objectbuffer.h>
-#include <bsls_platform.h>
 #include <bslalg_typetraitbitwisecopyable.h>
 #include <bslalg_typetraitbitwisemoveable.h>
 #include <bslalg_typetraithastrivialdefaultconstructor.h>
 
+#include <bslma_testallocator.h>
+#include <bslmf_if.h>
+#include <bslmf_isconvertible.h>
+#include <bslmf_metaint.h>
+#include <bslmf_removecvq.h>
+#include <bsls_bsltestutil.h>
+#include <bsls_objectbuffer.h>
+#include <bsls_platform.h>
 #include <bsls_types.h>  // for testing only
-
-#include <cstdio>
-#include <cstdlib>
 
 #include <new>
 #include <utility>
+
+#include <cstdio>
+#include <cstdlib>
 
 using namespace BloombergLP;
 using namespace std;
