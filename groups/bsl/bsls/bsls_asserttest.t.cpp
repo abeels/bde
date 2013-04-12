@@ -54,13 +54,14 @@ using namespace BloombergLP;
 // [-1] Testing try-probes that write diagnostics to the console
 // [-2] Testing catch-probes that write diagnostics to the console
 //=============================================================================
-//                  STANDARD BDE ASSERT TEST MACRO
+//                       STANDARD BDE ASSERT TEST MACRO
 //-----------------------------------------------------------------------------
 // NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY
 // FUNCTIONS, INCLUDING IOSTREAMS.
 static int testStatus = 0;
 
-static void aSsErT(bool b, const char *s, int i) {
+void aSsErT(bool b, const char *s, int i)
+{
     if (b) {
         printf("Error " __FILE__ "(%d): %s    (failed)\n", i, s);
         if (testStatus >= 0 && testStatus <= 100) ++testStatus;
@@ -84,7 +85,6 @@ static void aSsErT(bool b, const char *s, int i) {
 #define P_  BSLS_BSLTESTUTIL_P_  // P(X) without '\n'.
 #define T_  BSLS_BSLTESTUTIL_T_  // Print a tab (w/o newline).
 #define L_  BSLS_BSLTESTUTIL_L_  // current Line number
-
 
 //=============================================================================
 //                    GLOBAL CONSTANTS FOR TESTING

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+find bsl -type d -name 'bsl+*hdrs' -prune -o -type f -name '*.t.cpp' \
+    -exec grep -l cout {} \; | 
+{ 
+    t=0; 
+    while read f; do 
+        l=$(grep -n '#define *T_' "$f" | sed 's/:.*//'); 
+        n=$(sed "1,$((l + 1))d" "$f" | grep -c 'cout'); 
+        m=$(sed "1,$((l + 1))d" "$f" | grep -c 'if *(verbose) *cout'); 
+        echo "$((n - m))"$'\t'"$f"; t=$((t + n - m)); 
+    done; 
+    echo $t; 
+} | 
+sort -n
+
+

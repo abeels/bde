@@ -24,25 +24,20 @@ using namespace BloombergLP;
 // [4] USAGE EXAMPLE
 //-----------------------------------------------------------------------------
 
-//==========================================================================
-//                  STANDARD BDE ASSERT TEST MACRO
-//--------------------------------------------------------------------------
+//=============================================================================
+//                       STANDARD BDE ASSERT TEST MACRO
+//-----------------------------------------------------------------------------
 // NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY
 // FUNCTIONS, INCLUDING IOSTREAMS.
+static int testStatus = 0;
 
-namespace {
-
-int testStatus = 0;
-
-void aSsErT(int c, const char *s, int i)
+void aSsErT(bool b, const char *s, int i)
 {
-    if (c) {
+    if (b) {
         printf("Error " __FILE__ "(%d): %s    (failed)\n", i, s);
         if (testStatus >= 0 && testStatus <= 100) ++testStatus;
     }
 }
-
-}  // close unnamed namespace
 
 # define ASSERT(X) { aSsErT(!(X), #X, __LINE__); }
 

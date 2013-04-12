@@ -28,7 +28,7 @@ using namespace BloombergLP;
 // FUNCTIONS, INCLUDING IOSTREAMS.
 static int testStatus = 0;
 
-static void aSsErT(bool b, const char *s, int i)
+void aSsErT(bool b, const char *s, int i)
 {
     if (b) {
         printf("Error " __FILE__ "(%d): %s    (failed)\n", i, s);
@@ -38,9 +38,9 @@ static void aSsErT(bool b, const char *s, int i)
 
 # define ASSERT(X) { aSsErT(!(X), #X, __LINE__); }
 
-//=========================================================================
+//=============================================================================
 //                       STANDARD BDE TEST DRIVER MACROS
-//-------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 #define LOOP_ASSERT  BSLS_BSLTESTUTIL_LOOP_ASSERT
 #define LOOP2_ASSERT BSLS_BSLTESTUTIL_LOOP2_ASSERT
 #define LOOP3_ASSERT BSLS_BSLTESTUTIL_LOOP3_ASSERT

@@ -157,15 +157,12 @@ using namespace bsl;
 // [23] CONCERN: The object has the necessary type traits
 // [24] CONCERN: The type provides the full interface defined by the standard.
 
-// ============================================================================
-//                      STANDARD BDE ASSERT TEST MACROS
-// ----------------------------------------------------------------------------
+//=============================================================================
+//                       STANDARD BDE ASSERT TEST MACRO
+//-----------------------------------------------------------------------------
 // NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY
 // FUNCTIONS, INCLUDING IOSTREAMS.
-
-namespace {
-
-int testStatus = 0;
+static int testStatus = 0;
 
 void aSsErT(bool b, const char *s, int i)
 {
@@ -175,16 +172,12 @@ void aSsErT(bool b, const char *s, int i)
     }
 }
 
-}  // close unnamed namespace
-
 # define ASSERT(X) { aSsErT(!(X), #X, __LINE__); }
 
 //=============================================================================
 //                       STANDARD BDE TEST DRIVER MACROS
 //-----------------------------------------------------------------------------
 #define LOOP_ASSERT  BSLS_BSLTESTUTIL_LOOP_ASSERT
-#define LOOP0_ASSERT ASSERT
-#define LOOP1_ASSERT LOOP_ASSERT
 #define LOOP2_ASSERT BSLS_BSLTESTUTIL_LOOP2_ASSERT
 #define LOOP3_ASSERT BSLS_BSLTESTUTIL_LOOP3_ASSERT
 #define LOOP4_ASSERT BSLS_BSLTESTUTIL_LOOP4_ASSERT
@@ -197,19 +190,11 @@ void aSsErT(bool b, const char *s, int i)
 #define T_  BSLS_BSLTESTUTIL_T_  // Print a tab (w/o newline).
 #define L_  BSLS_BSLTESTUTIL_L_  // current Line number
 
-#define RUN_EACH_TYPE BSLTF_TEMPLATETESTFACILITY_RUN_EACH_TYPE
-
 //=============================================================================
-//                  STANDARD BDE VARIADIC ASSERT TEST MACROS
+//                    NON-STANDARD BDE TEST DRIVER MACROS
 //-----------------------------------------------------------------------------
 
-#define NUM_ARGS_IMPL(X5, X4, X3, X2, X1, X0, N, ...)   N
-#define NUM_ARGS(...) NUM_ARGS_IMPL(__VA_ARGS__, 5, 4, 3, 2, 1, 0, "")
-
-#define LOOPN_ASSERT_IMPL(N, ...) LOOP ## N ## _ASSERT(__VA_ARGS__)
-#define LOOPN_ASSERT(N, ...)      LOOPN_ASSERT_IMPL(N, __VA_ARGS__)
-
-#define ASSERTV(...) LOOPN_ASSERT(NUM_ARGS(__VA_ARGS__), __VA_ARGS__)
+#define RUN_EACH_TYPE BSLTF_TEMPLATETESTFACILITY_RUN_EACH_TYPE
 
 // ============================================================================
 //                  NEGATIVE-TEST MACRO ABBREVIATIONS

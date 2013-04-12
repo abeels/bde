@@ -20,7 +20,6 @@
 // [  ] USAGE EXAMPLE
 
 //=============================================================================
-//
 //                       STANDARD BDE ASSERT TEST MACRO
 //-----------------------------------------------------------------------------
 // NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY

@@ -59,6 +59,10 @@ void aSsErT(bool b, const char *s, int i)
 #define T_  BSLS_BSLTESTUTIL_T_  // Print a tab (w/o newline).
 #define L_  BSLS_BSLTESTUTIL_L_  // current Line number
 
+//=============================================================================
+//                         GLOBAL TYPES FOR TESTING
+//-----------------------------------------------------------------------------
+
 namespace {
 
 struct TestType {

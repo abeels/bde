@@ -88,25 +88,20 @@ using namespace bsl;
 
 //-----------------------------------------------------------------------------
 
-//==========================================================================
-//                  STANDARD BDE ASSERT TEST MACRO
-//--------------------------------------------------------------------------
+//=============================================================================
+//                       STANDARD BDE ASSERT TEST MACRO
+//-----------------------------------------------------------------------------
 // NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY
 // FUNCTIONS, INCLUDING IOSTREAMS.
+static int testStatus = 0;
 
-namespace {
-
-int verbose, veryVerbose, veryVeryVerbose;
-int testStatus = 0;
-
-void aSsErT(int c, const char *s, int i) {
-    if (c) {
+void aSsErT(bool b, const char *s, int i)
+{
+    if (b) {
         printf("Error " __FILE__ "(%d): %s    (failed)\n", i, s);
         if (testStatus >= 0 && testStatus <= 100) ++testStatus;
     }
 }
-
-}  // close unnamed namespace
 
 # define ASSERT(X) { aSsErT(!(X), #X, __LINE__); }
 
@@ -126,6 +121,8 @@ void aSsErT(int c, const char *s, int i) {
 #define T_  BSLS_BSLTESTUTIL_T_  // Print a tab (w/o newline).
 #define L_  BSLS_BSLTESTUTIL_L_  // current Line number
 
+//=============================================================================
+//                    NON-STANDARD BDE TEST DRIVER MACROS
 //-----------------------------------------------------------------------------
 
 // Short-cut assert macros

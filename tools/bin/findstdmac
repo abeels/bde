@@ -1,0 +1,18 @@
+#!/bin/bash
+
+find bsl -type d -name 'bsl+*hdrs' -prune -o -type f -name '*.t.cpp' | 
+while read f; do 
+    ls=$(grep -n 'void *aSsErT' "$f" | sed 's/:.*//');
+    le=$(grep -n '#define *L_ ' "$f" | sed 's/:.*//');
+    if [ -n "$ls" ] && [ -n "$le" ]; then
+        start=$(sed "${ls},\$d" "$f" | grep -n '^ *// *===' | tail -1 | sed 's/:.*//');
+        end=$(sed "1,$((le))d" "$f" | grep -m 1 -n '^ *// *===' | sed 's/:.*//');
+        end=$((le + end - 1))
+        
+        echo "$start"$'\t'"$end"$'\t'"$f"
+    else
+        echo "[$ls]"$'\t'"[$le]"$'\t'"$f"
+    fi
+done; 
+
+

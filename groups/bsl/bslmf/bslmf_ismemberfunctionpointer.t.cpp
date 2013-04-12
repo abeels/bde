@@ -27,8 +27,10 @@ using namespace BloombergLP;
 // [ 2] USAGE EXAMPLE
 
 //=============================================================================
-//                  STANDARD BDE ASSERT TEST MACRO
+//                       STANDARD BDE ASSERT TEST MACRO
 //-----------------------------------------------------------------------------
+// NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY
+// FUNCTIONS, INCLUDING IOSTREAMS.
 static int testStatus = 0;
 
 void aSsErT(bool b, const char *s, int i)
@@ -39,7 +41,7 @@ void aSsErT(bool b, const char *s, int i)
     }
 }
 
-#define ASSERT(X) { aSsErT(!(X), #X, __LINE__); }
+# define ASSERT(X) { aSsErT(!(X), #X, __LINE__); }
 
 //=============================================================================
 //                       STANDARD BDE TEST DRIVER MACROS

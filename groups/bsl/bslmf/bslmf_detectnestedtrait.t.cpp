@@ -16,13 +16,11 @@ using namespace bsl;
 //
 //
 
-//-----------------------------------------------------------------------------
+static bool         verbose = false;
+static bool     veryVerbose = false;
+static bool veryVeryVerbose = false;
 
-//==========================================================================
-//                  STANDARD BDE ASSERT TEST MACRO
-//--------------------------------------------------------------------------
-// NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY
-// FUNCTIONS, INCLUDING IOSTREAMS.
+//-----------------------------------------------------------------------------
 
 //=============================================================================
 //                       STANDARD BDE ASSERT TEST MACRO
@@ -30,10 +28,6 @@ using namespace bsl;
 // NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY
 // FUNCTIONS, INCLUDING IOSTREAMS.
 static int testStatus = 0;
-
-static bool         verbose = false;
-static bool     veryVerbose = false;
-static bool veryVeryVerbose = false;
 
 void aSsErT(bool b, const char *s, int i)
 {
