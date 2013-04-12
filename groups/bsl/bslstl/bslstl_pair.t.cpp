@@ -74,10 +74,12 @@ using namespace BloombergLP;
 //-----------------------------------------------------------------------------
 
 //=============================================================================
-//                       STANDARD BDE ASSERT TEST MACRO
+//                      STANDARD BDE ASSERT TEST MACRO
 //-----------------------------------------------------------------------------
+
 // NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY
 // FUNCTIONS, INCLUDING IOSTREAMS.
+
 static int testStatus = 0;
 
 void aSsErT(bool b, const char *s, int i)
@@ -88,17 +90,20 @@ void aSsErT(bool b, const char *s, int i)
     }
 }
 
-# define ASSERT(X) { aSsErT(!(X), #X, __LINE__); }
-
 //=============================================================================
-//                       STANDARD BDE TEST DRIVER MACROS
+//                      STANDARD BDE TEST DRIVER MACROS
 //-----------------------------------------------------------------------------
+
+#define ASSERT       BSLS_BSLTESTUTIL_ASSERT
 #define LOOP_ASSERT  BSLS_BSLTESTUTIL_LOOP_ASSERT
+#define LOOP0_ASSERT BSLS_BSLTESTUTIL_LOOP0_ASSERT
+#define LOOP1_ASSERT BSLS_BSLTESTUTIL_LOOP1_ASSERT
 #define LOOP2_ASSERT BSLS_BSLTESTUTIL_LOOP2_ASSERT
 #define LOOP3_ASSERT BSLS_BSLTESTUTIL_LOOP3_ASSERT
 #define LOOP4_ASSERT BSLS_BSLTESTUTIL_LOOP4_ASSERT
 #define LOOP5_ASSERT BSLS_BSLTESTUTIL_LOOP5_ASSERT
 #define LOOP6_ASSERT BSLS_BSLTESTUTIL_LOOP6_ASSERT
+#define ASSERTV      BSLS_BSLTESTUTIL_ASSERTV
 
 #define Q   BSLS_BSLTESTUTIL_Q   // Quote identifier literally.
 #define P   BSLS_BSLTESTUTIL_P   // Print identifier and value.
