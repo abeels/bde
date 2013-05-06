@@ -71,6 +71,7 @@ using namespace BloombergLP;
 // FUNCTIONS, INCLUDING IOSTREAMS.
 
 static int testStatus = 0;
+bool disableAssertOutput = false;
 
 void aSsErT(bool b, const char *s, int i)
 {
@@ -100,6 +101,8 @@ void aSsErT(bool b, const char *s, int i)
 #define P_  BSLS_BSLTESTUTIL_P_  // P(X) without '\n'.
 #define T_  BSLS_BSLTESTUTIL_T_  // Print a tab (w/o newline).
 #define L_  BSLS_BSLTESTUTIL_L_  // current Line number
+
+namespace {
 
 // ============================================================================
 //                              USAGE EXAMPLE

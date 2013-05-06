@@ -78,7 +78,6 @@ using namespace BloombergLP;
 int verbose = 0;
 int veryVerbose = 0;
 int veryVeryVerbose = 0;
-int testStatus = 0;
 
 //=============================================================================
 //                      STANDARD BDE ASSERT TEST MACRO

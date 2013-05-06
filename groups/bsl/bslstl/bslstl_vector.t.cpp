@@ -265,6 +265,8 @@ const int NUM_ALLOCS[] = {
 //                      GLOBAL HELPER FUNCTIONS FOR TESTING
 //-----------------------------------------------------------------------------
 
+namespace bsl {
+
 // Vector-specific print function.
 template <typename TYPE, typename ALLOC>
 void debugprint(const Vector_Imp<TYPE,ALLOC>& v)
@@ -274,11 +276,13 @@ void debugprint(const Vector_Imp<TYPE,ALLOC>& v)
     }
     else {
         for (size_t i = 0; i < v.size(); ++i) {
-            debugprint(v[i]);
+            bsls::BslTestUtil::callDebugprint(v[i], "", "");
         }
     }
     fflush(stdout);
 }
+
+}  // close package namespace
 
 BSLMF_ASSERT(!Vector_IsRandomAccessIterator<int>::VALUE);
 BSLMF_ASSERT(Vector_IsRandomAccessIterator<bsl::vector<int>::iterator>::VALUE);

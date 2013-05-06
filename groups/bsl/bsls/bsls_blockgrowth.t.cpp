@@ -9,6 +9,8 @@
 #include <cstdlib>
 #include <cstring>
 
+#include <cstdio>      // 'printf'
+
 using namespace BloombergLP;
 using namespace std;
 

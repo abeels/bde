@@ -827,7 +827,7 @@ void testInsertAndMoveToFrontRange(bool exceptionSafetyFlag = false)
 
                 if (exceptionSafetyFlag) {
                     bslma::TestAllocator& testAllocator = *Z;
-                    BEGIN_bslma_EXCEPTION_TEST {
+                    BEGIN_BSLMA_EXCEPTION_TEST {
 
                         const int AL = testAllocator.allocationLimit();
                         testAllocator.setAllocationLimit(-1);
@@ -861,7 +861,7 @@ void testInsertAndMoveToFrontRange(bool exceptionSafetyFlag = false)
                         verify(&deque, EXP);
                         cleanup(&deque, EXP);
 
-                    } END_bslma_EXCEPTION_TEST
+                    } END_BSLMA_EXCEPTION_TEST
                 }
                 else {
                     Deque deque(SIZE, numBlocks, Z);
@@ -1003,7 +1003,7 @@ void testInsertAndMoveToBackRange(bool exceptionSafetyFlag = false)
 
                 if (exceptionSafetyFlag) {
                     bslma::TestAllocator& testAllocator = *Z;
-                    BEGIN_bslma_EXCEPTION_TEST {
+                    BEGIN_BSLMA_EXCEPTION_TEST {
 
                         const int AL = testAllocator.allocationLimit();
                         testAllocator.setAllocationLimit(-1);
@@ -1036,7 +1036,7 @@ void testInsertAndMoveToBackRange(bool exceptionSafetyFlag = false)
                         verify(&deque, EXP);
                         cleanup(&deque, EXP);
 
-                    } END_bslma_EXCEPTION_TEST
+                    } END_BSLMA_EXCEPTION_TEST
                 }
                 else {
                     Deque deque(SIZE, numBlocks, Z);
@@ -1176,7 +1176,7 @@ void testInsertAndMoveToFrontRaw(bool exceptionSafetyFlag = false)
 
                 if (exceptionSafetyFlag) {
                     bslma::TestAllocator& testAllocator = *Z;
-                    BEGIN_bslma_EXCEPTION_TEST {
+                    BEGIN_BSLMA_EXCEPTION_TEST {
 
                         const int AL = testAllocator.allocationLimit();
                         testAllocator.setAllocationLimit(-1);
@@ -1209,7 +1209,7 @@ void testInsertAndMoveToFrontRaw(bool exceptionSafetyFlag = false)
                         verify(&deque, EXP);
                         cleanup(&deque, EXP);
 
-                    } END_bslma_EXCEPTION_TEST
+                    } END_BSLMA_EXCEPTION_TEST
                 }
                 else {
                     Deque deque(SIZE, numBlocks, Z);
@@ -1352,7 +1352,7 @@ void testInsertAndMoveToBackRaw(bool exceptionSafetyFlag = false)
 
                 if (exceptionSafetyFlag) {
                     bslma::TestAllocator& testAllocator = *Z;
-                    BEGIN_bslma_EXCEPTION_TEST {
+                    BEGIN_BSLMA_EXCEPTION_TEST {
 
                         const int AL = testAllocator.allocationLimit();
                         testAllocator.setAllocationLimit(-1);
@@ -1384,7 +1384,7 @@ void testInsertAndMoveToBackRaw(bool exceptionSafetyFlag = false)
                         verify(&deque, EXP);
                         cleanup(&deque, EXP);
 
-                    } END_bslma_EXCEPTION_TEST
+                    } END_BSLMA_EXCEPTION_TEST
                 }
                 else {
                     Deque deque(SIZE, numBlocks, Z);
@@ -1502,7 +1502,7 @@ void testUninitializedFillNFront(bool exceptionSafetyFlag = false)
 
                 if (exceptionSafetyFlag) {
                     bslma::TestAllocator& testAllocator = *Z;
-                    BEGIN_bslma_EXCEPTION_TEST {
+                    BEGIN_BSLMA_EXCEPTION_TEST {
                         const int AL = testAllocator.allocationLimit();
                         testAllocator.setAllocationLimit(-1);
 
@@ -1531,7 +1531,7 @@ void testUninitializedFillNFront(bool exceptionSafetyFlag = false)
                         verify(&deque, EXP);
                         cleanup(&deque, EXP);
 
-                    } END_bslma_EXCEPTION_TEST
+                    } END_BSLMA_EXCEPTION_TEST
                 }
                 else {
                     Deque deque(SIZE, numBlocks, Z);
@@ -1646,7 +1646,7 @@ void testUninitializedFillNBack(bool exceptionSafetyFlag = false)
 
                 if (exceptionSafetyFlag) {
                     bslma::TestAllocator& testAllocator = *Z;
-                    BEGIN_bslma_EXCEPTION_TEST {
+                    BEGIN_BSLMA_EXCEPTION_TEST {
 
                         const int AL = testAllocator.allocationLimit();
                         testAllocator.setAllocationLimit(-1);
@@ -1676,7 +1676,7 @@ void testUninitializedFillNBack(bool exceptionSafetyFlag = false)
                         verify(&deque, EXP);
                         cleanup(&deque, EXP);
 
-                    } END_bslma_EXCEPTION_TEST
+                    } END_BSLMA_EXCEPTION_TEST
                 }
                 else {
                     Deque deque(SIZE, numBlocks, Z);
@@ -1864,7 +1864,7 @@ void testErase(bool exceptionSafetyFlag = false)
 
                 if (exceptionSafetyFlag) {
                     bslma::TestAllocator& testAllocator = *Z;
-                    BEGIN_bslma_EXCEPTION_TEST {
+                    BEGIN_BSLMA_EXCEPTION_TEST {
 
                         const int AL = testAllocator.allocationLimit();
                         testAllocator.setAllocationLimit(-1);
@@ -1903,7 +1903,7 @@ void testErase(bool exceptionSafetyFlag = false)
                         verify(&deque, EXP);
                         cleanup(&deque, EXP);
 
-                    } END_bslma_EXCEPTION_TEST
+                    } END_BSLMA_EXCEPTION_TEST
                 }
                 else {
                     Deque deque(SIZE, numBlocks, Z);

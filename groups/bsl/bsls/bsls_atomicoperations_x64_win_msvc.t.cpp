@@ -6,6 +6,8 @@
 
 #include <cstdlib>
 
+#include <cstdio>      // 'printf'
+
 using namespace BloombergLP;
 using namespace std;
 

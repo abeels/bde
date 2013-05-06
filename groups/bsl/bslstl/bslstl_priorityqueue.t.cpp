@@ -28,6 +28,8 @@
 
 #include <algorithm>
 
+#include <cstdio>      // 'printf'
+
 // ============================================================================
 //                          ADL SWAP TEST HELPER
 // ----------------------------------------------------------------------------
@@ -285,21 +287,26 @@ int NUM_SPECIAL_INT_VALUES     =
         bsltf::NonTypicalOverloadsTestType
 #endif
 
+namespace bsl {
 // 'priority_queue' specific print function
 
 template <class VALUE, class CONTAINER, class COMPARATOR>
-void debugprint(const bsl::priority_queue<VALUE, CONTAINER, COMPARATOR>& pq)
+void debugprint(const priority_queue<VALUE, CONTAINER, COMPARATOR>& pq)
 {
     if (pq.empty()) {
         printf("<empty>");
     }
     else {
         printf("size: %d, top: ", (int) pq.size());
-        debugprint(static_cast<char>(
-                        bsltf::TemplateTestFacility::getIdentifier(pq.top())));
+        bsls::BslTestUtil::callDebugprint(static_cast<char>(
+                        bsltf::TemplateTestFacility::getIdentifier(pq.top())),
+                        "", 
+                        "");
     }
     fflush(stdout);
 }
+
+}  // close package namespace
 
 //=============================================================================
 //                       GLOBAL HELPER CLASSES FOR TESTING

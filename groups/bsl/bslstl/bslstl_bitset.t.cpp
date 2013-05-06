@@ -13,6 +13,8 @@
 #include <cmath>  // native_std::sqrt
 #include <cstdlib>
 
+#include <cstdio>      // 'printf'
+
 using namespace BloombergLP;
 using namespace std;
 
@@ -147,6 +149,16 @@ void aSsErT(bool b, const char *s, int i)
 //=============================================================================
 //                  GLOBAL HELPER FUNCTIONS FOR TESTING
 //-----------------------------------------------------------------------------
+
+namespace bsl {
+
+template <size_t N>
+void debugprint(const bitset<N>& obj) {
+    // TBD remove cout dependency
+    cout << obj << endl;
+}
+
+}  // close package namespace
 
 template <size_t N>
 bool verifyBitset(const bsl::bitset<N> obj, const char *expected)

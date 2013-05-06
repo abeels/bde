@@ -158,6 +158,28 @@ static const char *NON_EMPTY_STRING = "Tangled Up in Blue - Bob Dylan";
 //                 HELPER FUNCTIONS FOR TESTING USAGE EXAMPLE
 //-----------------------------------------------------------------------------
 
+namespace bsl {
+
+void debugprint(const string& v) {
+    printf("%s", v.c_str());
+}
+
+}  // close package namespace
+
+namespace BloombergLP {
+namespace bslstl {
+
+void debugprint(const StringRefImp<char>& v) {
+    printf("%s", native_std::basic_string<char>(v).c_str());
+}
+
+}  // close package namespace
+}  // close enterprise namespace
+
+//=============================================================================
+//                 HELPER FUNCTIONS FOR TESTING USAGE EXAMPLE
+//-----------------------------------------------------------------------------
+
 ///Usage
 ///-----
 // This section illustrates intended usage of this component.

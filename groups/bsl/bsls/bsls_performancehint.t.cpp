@@ -8,6 +8,8 @@
 
 #include <stdlib.h>
 
+#include <cstdio>      // 'printf'
+
 // Warning: the following 'using' declarations interfere with the testing of
 // the macros defined in this component.  Please do not uncomment them.
 // using namespace BloombergLP;

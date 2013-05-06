@@ -8,6 +8,7 @@
 
 #include <iostream>
 
+#include <cstdio>      // printf()
 #include <cstdlib>     // atoi()
 #include <cstring>     // memset()
 

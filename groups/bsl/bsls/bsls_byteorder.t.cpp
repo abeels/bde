@@ -123,9 +123,8 @@ void printHex(T x)
     printHex((const char*)&x, sizeof x);
 }
 
-#define PH(X) std::cout << #X " = "; printHex(X); std::cout << std::endl;
-#define PH_(X) std::cout << #X " = "; printHex(X);                            \
-               std::cout << ", " << std::flush;
+#define PH(X) printf("%s = ", #X); printHex(X); printf("\n");
+#define PH_(X) printf("%s = ", #X); printHex(X); printf(", "); fflush(stdout);
 
 //=============================================================================
 //                                MAIN PROGRAM

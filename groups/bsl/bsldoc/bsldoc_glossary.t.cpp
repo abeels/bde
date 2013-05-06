@@ -5,6 +5,7 @@
 
 #include <iostream>
 
+#include <cstdio>      // 'printf'
 #include <cstdlib>     // 'atoi'
 
 using namespace std;
@@ -13,8 +14,6 @@ using namespace std;
 //                             TEST PLAN
 //-----------------------------------------------------------------------------
 // This is a documentation component with no implementation and no tests.
-
-static int testStatus = 0;
 
 //=============================================================================
 //                      STANDARD BDE ASSERT TEST MACRO

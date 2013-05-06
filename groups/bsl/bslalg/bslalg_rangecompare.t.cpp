@@ -1337,12 +1337,12 @@ void testLexicographicalBuiltin(bool                    verboseFlag,
                 printf("LHS = [ ");
                 for (k = 0; k < LHS_LEN; ++k) {
                     printf("%s", k ? ", " : "");
-                    debugprint(LHS_BEGIN[k]);
+                    bsls::debugprint(LHS_BEGIN[k]);
                 }
                 printf(" ]\nRHS = [ ");
                 for (k = 0; k < RHS_LEN; ++k) {
                     printf("%s", k ? ", " : "");
-                    debugprint(RHS_BEGIN[k]);
+                    bsls::debugprint(RHS_BEGIN[k]);
                 }
                 printf(" ]\nEXP = %d, result = %d\n", EXP, result);
             }

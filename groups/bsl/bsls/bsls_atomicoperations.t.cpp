@@ -22,6 +22,8 @@ typedef HANDLE my_thread_t;
 typedef pthread_t my_thread_t;
 #endif
 
+#include <cstdio>      // 'printf'
+
 using namespace BloombergLP;
 using namespace std;
 
@@ -1674,7 +1676,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setIntRelease(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getIntAcquire(&X)); P_(VAL); NL();
+                    T_ P_(Obj::getIntAcquire(&X)); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getIntAcquire(&X));
             }
@@ -1706,7 +1708,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt64Release(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64Acquire(&X)); P_(VAL); NL();
+                    T_ P_(Obj::getInt64Acquire(&X)); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt64Acquire(&X));
             }
@@ -1742,7 +1744,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setPtrRelease(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getPtrAcquire(&X)); P_(VAL);
+                    T_ P_(Obj::getPtrAcquire(&X)); P_(VAL);
                 }
                 LOOP_ASSERT(i, VAL == Obj::getPtrAcquire(&X));
             }
@@ -1808,7 +1810,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::addIntAcqRel(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X)); P_(VAL); NL();
+                    T_ P_(Obj::getInt(&X)); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt(&X));
             }
@@ -1828,7 +1830,7 @@ int main(int argc, char *argv[]) {
 
                 result = Obj::addIntNvAcqRel(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X)); P_(VAL); NL();
+                    T_ P_(Obj::getInt(&X)); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt(&X));
                 LOOP_ASSERT(i, VAL == result);
@@ -1871,7 +1873,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::addIntAcqRel(&x,AMT);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X));
+                    T_ P_(Obj::getInt(&X));
                     P_(BASE); P_(AMT); P_(EXP); NL();
                 }
                 LOOP_ASSERT(i, EXP == Obj::getInt(&X));
@@ -1892,7 +1894,7 @@ int main(int argc, char *argv[]) {
 
                 result = Obj::addIntNvAcqRel(&x,AMT);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X));
+                    T_ P_(Obj::getInt(&X));
                     P_(BASE); P_(AMT); P_(EXP); P_(result); NL();
                 }
                 LOOP_ASSERT(i, EXP == result);
@@ -1928,7 +1930,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::addInt64AcqRel(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X)); P_(VAL); NL();
+                    T_ P_(Obj::getInt64(&X)); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt64(&X));
             }
@@ -1943,7 +1945,7 @@ int main(int argc, char *argv[]) {
 
                 result = Obj::addInt64NvAcqRel(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X));
+                    T_ P_(Obj::getInt64(&X));
                     P_(VAL); P_(result); NL();
                 }
                 LOOP_ASSERT(i, VAL == result);
@@ -1983,8 +1985,8 @@ int main(int argc, char *argv[]) {
 
                 Obj::addInt64AcqRel(&x,AMT);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X)); P(BASE);
-                    T_(); P_(AMT); P(EXP);
+                    T_ P_(Obj::getInt64(&X)); P(BASE);
+                    T_ P_(AMT); P(EXP);
                 }
                 LOOP_ASSERT(i, EXP == Obj::getInt64(&X));
             }
@@ -2004,8 +2006,8 @@ int main(int argc, char *argv[]) {
 
                 result = Obj::addInt64NvAcqRel(&x,AMT);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X)); P(BASE);
-                    T_(); P_(AMT); P(EXP); NL();
+                    T_ P_(Obj::getInt64(&X)); P(BASE);
+                    T_ P_(AMT); P(EXP); NL();
                 }
                 LOOP_ASSERT(i, EXP == result);
                 LOOP_ASSERT(i, EXP == Obj::getInt64(&X));
@@ -2050,8 +2052,8 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt(&mInt)); P(EXPTOTAL);
-                T_(); P(STARTVALUE); NL();
+                T_ P_(Obj::getInt(&mInt)); P(EXPTOTAL);
+                T_ P(STARTVALUE); NL();
             }
         }
         if (verbose) cout << "\nTesting 'Int64' add Thread Safeness"
@@ -2091,8 +2093,8 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt64(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt64(&mInt)); P(EXPTOTAL);
-                T_(); P(STARTVALUE);
+                T_ P_(Obj::getInt64(&mInt)); P(EXPTOTAL);
+                T_ P(STARTVALUE);
             }
         }
 
@@ -2176,7 +2178,7 @@ int main(int argc, char *argv[]) {
                 result = Obj::swapIntAcqRel(&x,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&x)); P_(VAL);P_(SWPVAL);NL();
+                    T_ P_(Obj::getInt(&x)); P_(VAL);P_(SWPVAL);NL();
                 }
                 LOOP_ASSERT(i, SWPVAL == Obj::getInt(&X));
                 LOOP_ASSERT(i, VAL    == result );
@@ -2222,7 +2224,7 @@ int main(int argc, char *argv[]) {
                 result = Obj::testAndSwapIntAcqRel(&x,CMPVAL,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X));
+                    T_ P_(Obj::getInt(&X));
                     P_(VAL);P_(CMPVAL);P_(SWPVAL); P_(result);
                     P_(EXPVAL);P_(EXPRES); NL();
                 }
@@ -2262,7 +2264,7 @@ int main(int argc, char *argv[]) {
                 result = Obj::swapInt64AcqRel(&x,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X)); P_(VAL);
+                    T_ P_(Obj::getInt64(&X)); P_(VAL);
                     P_(SWPVAL); NL();
                 }
                 LOOP_ASSERT(i, SWPVAL == Obj::getInt64(&X));
@@ -2307,7 +2309,7 @@ int main(int argc, char *argv[]) {
                 result = Obj::testAndSwapInt64AcqRel(&x,CMPVAL,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X));
+                    T_ P_(Obj::getInt64(&X));
                     P_(VAL);P_(CMPVAL);P_(SWPVAL); P_(result);
                     P_(EXPVAL);P_(EXPRES);NL();
                 }
@@ -2348,7 +2350,7 @@ int main(int argc, char *argv[]) {
                 result = Obj::swapPtrAcqRel(&x,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(Obj::getPtr(&X)); P_(VAL);P_(SWPVAL);NL();
+                    T_ P_(Obj::getPtr(&X)); P_(VAL);P_(SWPVAL);NL();
                 }
                 LOOP3_ASSERT(i, SWPVAL, Obj::getPtr(&X),
                              SWPVAL == Obj::getPtr(&X));
@@ -2399,7 +2401,7 @@ int main(int argc, char *argv[]) {
                 result = Obj::testAndSwapPtrAcqRel(&x,CMPVAL,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(Obj::getPtr(&X));
+                    T_ P_(Obj::getPtr(&X));
                     P_(VAL);P_(CMPVAL);P_(SWPVAL);
                     P_(EXPVAL);P_(EXPRES);NL();
                 }
@@ -2464,8 +2466,8 @@ int main(int argc, char *argv[]) {
             ASSERT(EXPTOTAL == total);
 
             if (veryVerbose) {
-                T_(); P_(EXPTOTAL); P(total); P(args.d_value1Count);
-                T_(); P_(args.d_value2Count); P(args.d_errorCount);
+                T_ P_(EXPTOTAL); P(total); P(args.d_value1Count);
+                T_ P_(args.d_value2Count); P(args.d_errorCount);
             }
         }
 
@@ -2523,8 +2525,8 @@ int main(int argc, char *argv[]) {
             ASSERT(EXPTOTAL == total);
 
             if (veryVerbose) {
-                T_(); P_(EXPTOTAL); P(total);
-                T_(); P_(args.d_value1Count); P_(args.d_value2Count);
+                T_ P_(EXPTOTAL); P(total);
+                T_ P_(args.d_value1Count); P_(args.d_value2Count);
                 P(args.d_errorCount);
             }
         }
@@ -2584,8 +2586,8 @@ int main(int argc, char *argv[]) {
 
 
             if (veryVerbose) {
-                T_(); P_(EXPTOTAL); P(total); P(args.d_value1Count);
-                T_(); P_(args.d_value2Count); P(args.d_errorCount);
+                T_ P_(EXPTOTAL); P(total); P(args.d_value1Count);
+                T_ P_(args.d_value2Count); P(args.d_errorCount);
             }
         }
 
@@ -2644,8 +2646,8 @@ int main(int argc, char *argv[]) {
             ASSERT(EXPTOTAL == total);
 
             if (veryVerbose) {
-                T_(); P_(EXPTOTAL); P(total);
-                T_(); P_(args.d_value1Count); P_(args.d_value2Count);
+                T_ P_(EXPTOTAL); P(total);
+                T_ P_(args.d_value1Count); P_(args.d_value2Count);
                 P(args.d_errorCount);
             }
         }
@@ -2703,8 +2705,8 @@ int main(int argc, char *argv[]) {
             ASSERT(EXPTOTAL == total);
 
             if (veryVerbose) {
-                T_(); P_(EXPTOTAL); P(total);
-                T_(); P_(args.d_value1Count); P_(args.d_value2Count);
+                T_ P_(EXPTOTAL); P(total);
+                T_ P_(args.d_value1Count); P_(args.d_value2Count);
                 P(args.d_errorCount);
             }
         }
@@ -2763,8 +2765,8 @@ int main(int argc, char *argv[]) {
             ASSERT(EXPTOTAL == total);
 
             if (veryVerbose) {
-                T_(); P_(EXPTOTAL); P(total);
-                T_(); P_(args.d_value1Count); P_(args.d_value2Count);
+                T_ P_(EXPTOTAL); P(total);
+                T_ P_(args.d_value1Count); P_(args.d_value2Count);
                 P(args.d_errorCount);
             }
         }
@@ -2989,7 +2991,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
+                    T_ P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt(&X));
                 Obj::incrementIntAcqRel(&x);
@@ -3007,7 +3009,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
+                    T_ P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt(&X));
                 result = Obj::incrementIntNvAcqRel(&x);
@@ -3052,7 +3054,7 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
+                T_ P_(Obj::getInt(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
             }
         }
 
@@ -3085,7 +3087,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
+                    T_ P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt(&X));
                 Obj::decrementIntAcqRel(&x);
@@ -3103,7 +3105,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
+                    T_ P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt(&X));
                 result = Obj::decrementIntNvAcqRel(&x);
@@ -3148,7 +3150,7 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
+                T_ P_(Obj::getInt(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
             }
         }
 
@@ -3188,7 +3190,7 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
+                T_ P_(Obj::getInt(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
             }
         }
 
@@ -3224,12 +3226,12 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt64(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X)); P_(VAL);P_(EXP); NL();
+                    T_ P_(Obj::getInt64(&X)); P_(VAL);P_(EXP); NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt64(&X));
                 Obj::decrementInt64AcqRel(&x);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X)); P_(VAL);P_(EXP); NL();
+                    T_ P_(Obj::getInt64(&X)); P_(VAL);P_(EXP); NL();
                 }
                 LOOP_ASSERT(i, EXP == Obj::getInt64(&X));
             }
@@ -3245,7 +3247,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt64(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&x)); P_(VAL);P_(EXP);NL();
+                    T_ P_(Obj::getInt64(&x)); P_(VAL);P_(EXP);NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt64(&X));
                 result = Obj::decrementInt64NvAcqRel(&x);
@@ -3290,7 +3292,7 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt64(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt64(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
+                T_ P_(Obj::getInt64(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
             }
         }
 
@@ -3331,7 +3333,7 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt64(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt64(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
+                T_ P_(Obj::getInt64(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
             }
         }
 
@@ -3399,7 +3401,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
+                    T_ P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt(&X));
                 Obj::incrementInt(&x);
@@ -3417,7 +3419,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
+                    T_ P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt(&X));
                 result = Obj::incrementIntNv(&x);
@@ -3462,7 +3464,7 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
+                T_ P_(Obj::getInt(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
             }
         }
 
@@ -3495,7 +3497,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
+                    T_ P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt(&X));
                 Obj::decrementInt(&x);
@@ -3513,7 +3515,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
+                    T_ P_(Obj::getInt(&X)); P_(VAL);P_(EXP);NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt(&X));
                 result = Obj::decrementIntNv(&x);
@@ -3558,7 +3560,7 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
+                T_ P_(Obj::getInt(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
             }
         }
 
@@ -3597,7 +3599,7 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
+                T_ P_(Obj::getInt(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
             }
         }
 
@@ -3633,12 +3635,12 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt64(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X)); P_(VAL);P_(EXP); NL();
+                    T_ P_(Obj::getInt64(&X)); P_(VAL);P_(EXP); NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt64(&X));
                 Obj::decrementInt64(&x);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X)); P_(VAL);P_(EXP); NL();
+                    T_ P_(Obj::getInt64(&X)); P_(VAL);P_(EXP); NL();
                 }
                 LOOP_ASSERT(i, EXP == Obj::getInt64(&X));
             }
@@ -3654,7 +3656,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt64(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&x)); P_(VAL);P_(EXP);NL();
+                    T_ P_(Obj::getInt64(&x)); P_(VAL);P_(EXP);NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt64(&X));
                 result = Obj::decrementInt64Nv(&x);
@@ -3698,7 +3700,7 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt64(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt64(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
+                T_ P_(Obj::getInt64(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
             }
         }
 
@@ -3738,7 +3740,7 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt64(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt64(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
+                T_ P_(Obj::getInt64(&mInt)); P_(EXPTOTAL); P(STARTVALUE);
             }
         }
 
@@ -3822,7 +3824,7 @@ int main(int argc, char *argv[]) {
                 result = Obj::swapInt(&x,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&x)); P_(VAL);P_(SWPVAL);NL();
+                    T_ P_(Obj::getInt(&x)); P_(VAL);P_(SWPVAL);NL();
                 }
                 LOOP_ASSERT(i, SWPVAL == Obj::getInt(&X));
                 LOOP_ASSERT(i, VAL    == result );
@@ -3868,7 +3870,7 @@ int main(int argc, char *argv[]) {
                 result = Obj::testAndSwapInt(&x,CMPVAL,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X));
+                    T_ P_(Obj::getInt(&X));
                     P_(VAL);P_(CMPVAL);P_(SWPVAL); P_(result);
                     P_(EXPVAL);P_(EXPRES); NL();
                 }
@@ -3908,7 +3910,7 @@ int main(int argc, char *argv[]) {
                 result = Obj::swapInt64(&x,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X)); P_(VAL);
+                    T_ P_(Obj::getInt64(&X)); P_(VAL);
                     P_(SWPVAL); NL();
                 }
                 LOOP_ASSERT(i, SWPVAL == Obj::getInt64(&X));
@@ -3953,7 +3955,7 @@ int main(int argc, char *argv[]) {
                 result = Obj::testAndSwapInt64(&x,CMPVAL,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X));
+                    T_ P_(Obj::getInt64(&X));
                     P_(VAL);P_(CMPVAL);P_(SWPVAL); P_(result);
                     P_(EXPVAL);P_(EXPRES);NL();
                 }
@@ -3994,7 +3996,7 @@ int main(int argc, char *argv[]) {
                 result = Obj::swapPtr(&x,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(Obj::getPtr(&X)); P_(VAL);P_(SWPVAL);NL();
+                    T_ P_(Obj::getPtr(&X)); P_(VAL);P_(SWPVAL);NL();
                 }
                 LOOP3_ASSERT(i, SWPVAL, Obj::getPtr(&X),
                              SWPVAL == Obj::getPtr(&X));
@@ -4045,7 +4047,7 @@ int main(int argc, char *argv[]) {
                 result = Obj::testAndSwapPtr(&x,CMPVAL,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(Obj::getPtr(&X));
+                    T_ P_(Obj::getPtr(&X));
                     P_(VAL);P_(CMPVAL);P_(SWPVAL);
                     P_(EXPVAL);P_(EXPRES);NL();
                 }
@@ -4110,8 +4112,8 @@ int main(int argc, char *argv[]) {
             ASSERT(EXPTOTAL == total);
 
             if (veryVerbose) {
-                T_(); P_(EXPTOTAL); P(total); P(args.d_value1Count);
-                T_(); P_(args.d_value2Count); P(args.d_errorCount);
+                T_ P_(EXPTOTAL); P(total); P(args.d_value1Count);
+                T_ P_(args.d_value2Count); P(args.d_errorCount);
             }
         }
 
@@ -4169,8 +4171,8 @@ int main(int argc, char *argv[]) {
             ASSERT(EXPTOTAL == total);
 
             if (veryVerbose) {
-                T_(); P_(EXPTOTAL); P(total);
-                T_(); P_(args.d_value1Count); P_(args.d_value2Count);
+                T_ P_(EXPTOTAL); P(total);
+                T_ P_(args.d_value1Count); P_(args.d_value2Count);
                 P(args.d_errorCount);
             }
         }
@@ -4229,8 +4231,8 @@ int main(int argc, char *argv[]) {
 
 
             if (veryVerbose) {
-                T_(); P_(EXPTOTAL); P(total); P(args.d_value1Count);
-                T_(); P_(args.d_value2Count); P(args.d_errorCount);
+                T_ P_(EXPTOTAL); P(total); P(args.d_value1Count);
+                T_ P_(args.d_value2Count); P(args.d_errorCount);
             }
         }
 
@@ -4288,8 +4290,8 @@ int main(int argc, char *argv[]) {
             ASSERT(EXPTOTAL == total);
 
             if (veryVerbose) {
-                T_(); P_(EXPTOTAL); P(total);
-                T_(); P_(args.d_value1Count); P_(args.d_value2Count);
+                T_ P_(EXPTOTAL); P(total);
+                T_ P_(args.d_value1Count); P_(args.d_value2Count);
                 P(args.d_errorCount);
             }
         }
@@ -4347,8 +4349,8 @@ int main(int argc, char *argv[]) {
             ASSERT(EXPTOTAL == total);
 
             if (veryVerbose) {
-                T_(); P_(EXPTOTAL); P(total);
-                T_(); P_(args.d_value1Count); P_(args.d_value2Count);
+                T_ P_(EXPTOTAL); P(total);
+                T_ P_(args.d_value1Count); P_(args.d_value2Count);
                 P(args.d_errorCount);
             }
         }
@@ -4406,8 +4408,8 @@ int main(int argc, char *argv[]) {
             ASSERT(EXPTOTAL == total);
 
             if (veryVerbose) {
-                T_(); P_(EXPTOTAL); P(total);
-                T_(); P_(args.d_value1Count); P_(args.d_value2Count);
+                T_ P_(EXPTOTAL); P(total);
+                T_ P_(args.d_value1Count); P_(args.d_value2Count);
                 P(args.d_errorCount);
             }
         }
@@ -4471,7 +4473,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::addInt(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X)); P_(VAL); NL();
+                    T_ P_(Obj::getInt(&X)); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt(&X));
             }
@@ -4491,7 +4493,7 @@ int main(int argc, char *argv[]) {
 
                 result = Obj::addIntNv(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X)); P_(VAL); NL();
+                    T_ P_(Obj::getInt(&X)); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt(&X));
                 LOOP_ASSERT(i, VAL == result);
@@ -4534,7 +4536,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::addInt(&x,AMT);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X));
+                    T_ P_(Obj::getInt(&X));
                     P_(BASE); P_(AMT); P_(EXP); NL();
                 }
                 LOOP_ASSERT(i, EXP == Obj::getInt(&X));
@@ -4555,7 +4557,7 @@ int main(int argc, char *argv[]) {
 
                 result = Obj::addIntNv(&x,AMT);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X));
+                    T_ P_(Obj::getInt(&X));
                     P_(BASE); P_(AMT); P_(EXP); P_(result); NL();
                 }
                 LOOP_ASSERT(i, EXP == result);
@@ -4591,7 +4593,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::addInt64(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X)); P_(VAL); NL();
+                    T_ P_(Obj::getInt64(&X)); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt64(&X));
             }
@@ -4606,7 +4608,7 @@ int main(int argc, char *argv[]) {
 
                 result = Obj::addInt64Nv(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X));
+                    T_ P_(Obj::getInt64(&X));
                     P_(VAL); P_(result); NL();
                 }
                 LOOP_ASSERT(i, VAL == result);
@@ -4646,8 +4648,8 @@ int main(int argc, char *argv[]) {
 
                 Obj::addInt64(&x,AMT);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X)); P(BASE);
-                    T_(); P_(AMT); P(EXP);
+                    T_ P_(Obj::getInt64(&X)); P(BASE);
+                    T_ P_(AMT); P(EXP);
                 }
                 LOOP_ASSERT(i, EXP == Obj::getInt64(&X));
             }
@@ -4667,8 +4669,8 @@ int main(int argc, char *argv[]) {
 
                 result = Obj::addInt64Nv(&x,AMT);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X)); P(BASE);
-                    T_(); P_(AMT); P(EXP); NL();
+                    T_ P_(Obj::getInt64(&X)); P(BASE);
+                    T_ P_(AMT); P(EXP); NL();
                 }
                 LOOP_ASSERT(i, EXP == result);
                 LOOP_ASSERT(i, EXP == Obj::getInt64(&X));
@@ -4711,8 +4713,8 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt(&mInt)); P(EXPTOTAL);
-                T_(); P(STARTVALUE); NL();
+                T_ P_(Obj::getInt(&mInt)); P(EXPTOTAL);
+                T_ P(STARTVALUE); NL();
             }
         }
         if (verbose) cout << "\nTesting 'Int64' add Thread Safeness"
@@ -4752,8 +4754,8 @@ int main(int argc, char *argv[]) {
             }
             ASSERT(EXPTOTAL == Obj::getInt64(&mInt));
             if (veryVerbose) {
-                T_(); P_(Obj::getInt64(&mInt)); P(EXPTOTAL);
-                T_(); P(STARTVALUE);
+                T_ P_(Obj::getInt64(&mInt)); P(EXPTOTAL);
+                T_ P(STARTVALUE);
             }
         }
 
@@ -4815,7 +4817,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt(&X)); P_(VAL); NL();
+                    T_ P_(Obj::getInt(&X)); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt(&X));
             }
@@ -4847,7 +4849,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setInt64(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getInt64(&X)); P_(VAL); NL();
+                    T_ P_(Obj::getInt64(&X)); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == Obj::getInt64(&X));
             }
@@ -4883,7 +4885,7 @@ int main(int argc, char *argv[]) {
 
                 Obj::setPtr(&x,VAL);
                 if (veryVerbose) {
-                    T_(); P_(Obj::getPtr(&X)); P_(VAL);
+                    T_ P_(Obj::getPtr(&X)); P_(VAL);
                 }
                 LOOP_ASSERT(i, VAL == Obj::getPtr(&X));
             }
@@ -4947,7 +4949,7 @@ int main(int argc, char *argv[]) {
         ASSERT(1 == lresult);
         ASSERT(1 == Obj::getInt(&mX1));
         if ( veryVeryVerbose) {
-            T_(); P(lresult); NL();
+            T_ P(lresult); NL();
         }
 
         Obj::setIntRelaxed(&mX1,2);
@@ -5008,7 +5010,7 @@ int main(int argc, char *argv[]) {
         ASSERT(1 == llresult);
         ASSERT(1 == Obj::getInt64(&mY1));
         if ( veryVeryVerbose) {
-            T_(); P(llresult); NL();
+            T_ P(llresult); NL();
         }
         llresult = Obj::decrementInt64Nv(&mY1);
         ASSERT(0 == llresult);

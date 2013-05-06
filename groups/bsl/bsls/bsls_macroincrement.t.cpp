@@ -8,6 +8,8 @@
 
 #include <cstdlib>     // atoi()
 
+#include <cstdio>      // 'printf'
+
 // using namespace BloombergLP;
 using namespace std;
 

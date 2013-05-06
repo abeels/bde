@@ -28,6 +28,8 @@
 
 #include <algorithm>
 
+#include <cstdio>      // 'printf'
+
 // ============================================================================
 //                          ADL SWAP TEST HELPER
 // ----------------------------------------------------------------------------
@@ -278,6 +280,7 @@ int NUM_SPECIAL_INT_VALUES     =
         bsltf::NonTypicalOverloadsTestType
 #endif
 
+namespace bsl {
 // 'queue' specific print function
 
 template <class VALUE, class CONTAINER>
@@ -288,22 +291,21 @@ void debugprint(const bsl::queue<VALUE, CONTAINER>& q)
     }
     else {
         printf("size: %d, front: ", (int) q.size());
-        debugprint(static_cast<char>(
-                       bsltf::TemplateTestFacility::getIdentifier(q.front())));
+        bsls::BslTestUtil::callDebugprint(static_cast<char>(
+                       bsltf::TemplateTestFacility::getIdentifier(q.front())),
+                       "",
+                       "");
         printf(", back: ");
-        debugprint(static_cast<char>(
-                        bsltf::TemplateTestFacility::getIdentifier(q.back())));
+        bsls::BslTestUtil::callDebugprint(static_cast<char>(
+                        bsltf::TemplateTestFacility::getIdentifier(q.back())),
+                        "",
+                        "");
     }
     fflush(stdout);
 }
 
-// generic debug print function (3-arguments)
-template <typename T>
-void debugprint(const char* s, const T& val, const char* nl) {
-    printf("%s", s); debugprint(val);
-    printf("%s", nl);
-    fflush(stdout);
-}
+}  // close package namespace
+
 
                             // ==================
                             // class NonAllocCont

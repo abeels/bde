@@ -16,6 +16,8 @@
 #include <cstdlib>  // atoi()
 #include <cstring>
 
+#include <cstdio>      // 'printf'
+
 using namespace BloombergLP;
 using namespace std;
 
@@ -378,7 +380,7 @@ int main(int argc, char *argv[])
 
         const int maxAlignment = offsetof(MaxAlignAlign, d_maxAlign);
         if (veryVerbose) {
-            TAB; P_(maxAlignment);
+            T_ P_(maxAlignment);
             P_(sizeof(Class::MaxAlignedType));
         }
 
@@ -565,7 +567,7 @@ int main(int argc, char *argv[])
                 const int         ALIGN   = DATA[i].d_align;
 
                 if(veryVerbose) {
-                    TAB P_(TYPE) P_(RESULT) P_(ADDRESS) P(ALIGN)
+                    T_ P_(TYPE) P_(RESULT) P_(ADDRESS) P(ALIGN)
                 }
 
                 LOOP_ASSERT(LINE, bsls::AssertTest::isValidAssertBuild(TYPE));
@@ -712,7 +714,7 @@ int main(int argc, char *argv[])
                 const int         ALIGN  = DATA[i].d_expected;
 
                 if(veryVerbose) {
-                    TAB P_(TYPE) P_(RESULT) P_(SIZE) P(ALIGN)
+                    T_ P_(TYPE) P_(RESULT) P_(SIZE) P(ALIGN)
                 }
 
                 LOOP_ASSERT(LINE, bsls::AssertTest::isValidAssertBuild(TYPE));
@@ -819,7 +821,7 @@ int main(int argc, char *argv[])
 
         const int maxAlignment = offsetof(MaxAlignAlign, d_maxAlign);
         if (veryVerbose) {
-            TAB; P_(maxAlignment);
+            T_ P_(maxAlignment);
             P_(sizeof(Class::MaxAlignedType)); P(EXP);
         }
 
@@ -860,7 +862,7 @@ int main(int argc, char *argv[])
         if (veryVerbose) {
             cout << endl << "ALIGNMENTS" << endl
                          << "----------" << endl;
-            P(bsls::AlignmentUtil::BSLS_MAX_ALIGNMENT);
+            P((int)bsls::AlignmentUtil::BSLS_MAX_ALIGNMENT);
         }
 
         if (veryVerbose) {
@@ -917,7 +919,7 @@ int main(int argc, char *argv[])
 // all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANT_ILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING

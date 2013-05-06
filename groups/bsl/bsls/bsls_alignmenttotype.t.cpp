@@ -13,6 +13,8 @@
 #include <cstdlib>     // atoi()
 #include <cstring>
 
+#include <cstdio>      // 'printf'
+
 using namespace BloombergLP;
 using namespace std;
 
@@ -77,6 +79,23 @@ void aSsErT(bool b, const char *s, int i)
 //=============================================================================
 //                  GLOBAL DEFINITIONS FOR TESTING
 //-----------------------------------------------------------------------------
+
+typedef void (*FuncPtr)();
+
+enum Alignments {
+    CHAR_ALIGNMENT        = bsls::AlignmentImpCalc<char>::VALUE,
+    SHORT_ALIGNMENT       = bsls::AlignmentImpCalc<short>::VALUE,
+    INT_ALIGNMENT         = bsls::AlignmentImpCalc<int>::VALUE,
+    LONG_ALIGNMENT        = bsls::AlignmentImpCalc<long>::VALUE,
+    INT64_ALIGNMENT       = bsls::AlignmentImpCalc<long long>::VALUE,
+    BOOL_ALIGNMENT        = bsls::AlignmentImpCalc<bool>::VALUE,
+    WCHAR_T_ALIGNMENT     = bsls::AlignmentImpCalc<wchar_t>::VALUE,
+    PTR_ALIGNMENT         = bsls::AlignmentImpCalc<void*>::VALUE,
+    FUNC_PTR_ALIGNMENT    = bsls::AlignmentImpCalc<FuncPtr>::VALUE,
+    FLOAT_ALIGNMENT       = bsls::AlignmentImpCalc<float>::VALUE,
+    DOUBLE_ALIGNMENT      = bsls::AlignmentImpCalc<double>::VALUE,
+    LONG_DOUBLE_ALIGNMENT = bsls::AlignmentImpCalc<long double>::VALUE
+};
 
 //=============================================================================
 //                             USAGE EXAMPLE
@@ -517,23 +536,6 @@ int main(int argc, char *argv[])
         // Test sameType function.
         ASSERT(sameType(int(), int()));
         ASSERT(! sameType(int(), short()));
-
-        typedef void (*FuncPtr)();
-
-        enum {
-            CHAR_ALIGNMENT        = bsls::AlignmentImpCalc<char>::VALUE,
-            SHORT_ALIGNMENT       = bsls::AlignmentImpCalc<short>::VALUE,
-            INT_ALIGNMENT         = bsls::AlignmentImpCalc<int>::VALUE,
-            LONG_ALIGNMENT        = bsls::AlignmentImpCalc<long>::VALUE,
-            INT64_ALIGNMENT       = bsls::AlignmentImpCalc<long long>::VALUE,
-            BOOL_ALIGNMENT        = bsls::AlignmentImpCalc<bool>::VALUE,
-            WCHAR_T_ALIGNMENT     = bsls::AlignmentImpCalc<wchar_t>::VALUE,
-            PTR_ALIGNMENT         = bsls::AlignmentImpCalc<void*>::VALUE,
-            FUNC_PTR_ALIGNMENT    = bsls::AlignmentImpCalc<FuncPtr>::VALUE,
-            FLOAT_ALIGNMENT       = bsls::AlignmentImpCalc<float>::VALUE,
-            DOUBLE_ALIGNMENT      = bsls::AlignmentImpCalc<double>::VALUE,
-            LONG_DOUBLE_ALIGNMENT = bsls::AlignmentImpCalc<long double>::VALUE
-        };
 
         long double  LD = 0.0;
         void        *V  = 0;

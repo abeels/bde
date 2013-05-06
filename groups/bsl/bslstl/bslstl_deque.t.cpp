@@ -265,20 +265,24 @@ const int NUM_INTERNAL_STATE_TEST = 10;
 //                      GLOBAL HELPER FUNCTIONS FOR TESTING
 //-----------------------------------------------------------------------------
 
+namespace bsl {
+
 // Deque-specific print function.
 template <typename TYPE, typename ALLOC>
-void debugprint(const bsl::deque<TYPE,ALLOC>& v)
+void debugprint(const deque<TYPE,ALLOC>& v)
 {
     if (v.empty()) {
         printf("<empty>");
     }
     else {
         for (size_t i = 0; i < v.size(); ++i) {
-            debugprint(v[i]);
+            bsls::BslTestUtil::callDebugprint(v[i], "", "");
         }
     }
     fflush(stdout);
 }
+
+}  // close package namespace
 
 //=============================================================================
 //                       GLOBAL HELPER CLASSES FOR TESTING
@@ -524,6 +528,8 @@ struct ExceptionGuard {
         d_object_p = 0;
     }
 };
+
+
                                // ==============
                                // class TestType
                                // ==============
@@ -653,6 +659,7 @@ void debugprint(const TestType& rhs)
     printf("%c", rhs.value());
     fflush(stdout);
 }
+
 
                        // ==========================
                        // class SmallTestTypeNoAlloc
@@ -937,6 +944,7 @@ class BitwiseMoveableTestType : public TestType {
     }
 };
 
+
                        // =============================
                        // class BitwiseCopyableTestType
                        // =============================
@@ -971,6 +979,7 @@ class BitwiseCopyableTestType : public SmallTestTypeNoAlloc {
     {
     }
 };
+
 
                                // ==============
                                // class CharList

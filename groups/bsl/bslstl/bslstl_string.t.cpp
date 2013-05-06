@@ -384,20 +384,24 @@ const int NUM_ALLOCS[] = {
 //                      GLOBAL HELPER FUNCTIONS FOR TESTING
 //-----------------------------------------------------------------------------
 
+namespace bsl {
+
 // String-specific print function.
 template <typename TYPE, typename TRAITS, typename ALLOC>
-void debugprint(const bsl::basic_string<TYPE,TRAITS,ALLOC>& v)
+void debugprint(const basic_string<TYPE,TRAITS,ALLOC>& v)
 {
     if (v.empty()) {
         printf("<empty>");
     }
     else {
         for (size_t i = 0; i < v.size(); ++i) {
-            debugprint(v[i]);
+            bsls::BslTestUtil::callDebugprint(v[i], "", "");
         }
     }
     fflush(stdout);
 }
+
+}  // close package namespace
 
 // String utilities
 size_t max(size_t lhs, size_t rhs)

@@ -11,6 +11,8 @@
 #include <cstdlib>     // atoi()
 #include <cstring>
 
+#include <cstdio>      // 'printf'
+
 using namespace BloombergLP;
 using namespace std;
 
@@ -182,6 +184,34 @@ struct S5 { long long d_longLong __attribute__((__aligned__(8))); };
 #endif
 union  U1 { char d_c; int *d_pointer; };
 
+typedef void (*FuncPtr)();
+
+enum Alignments {
+    CHAR_ALIGNMENT        = bsls::AlignmentImpCalc<char>::VALUE,
+    SHORT_ALIGNMENT       = bsls::AlignmentImpCalc<short>::VALUE,
+    INT_ALIGNMENT         = bsls::AlignmentImpCalc<int>::VALUE,
+    LONG_ALIGNMENT        = bsls::AlignmentImpCalc<long>::VALUE,
+    INT64_ALIGNMENT       = bsls::AlignmentImpCalc<long long>::VALUE,
+    BOOL_ALIGNMENT        = bsls::AlignmentImpCalc<bool>::VALUE,
+    WCHAR_T_ALIGNMENT     = bsls::AlignmentImpCalc<wchar_t>::VALUE,
+    PTR_ALIGNMENT         = bsls::AlignmentImpCalc<void*>::VALUE,
+    FUNC_PTR_ALIGNMENT    = bsls::AlignmentImpCalc<FuncPtr>::VALUE,
+    FLOAT_ALIGNMENT       = bsls::AlignmentImpCalc<float>::VALUE,
+    DOUBLE_ALIGNMENT      = bsls::AlignmentImpCalc<double>::VALUE,
+    LONG_DOUBLE_ALIGNMENT = bsls::AlignmentImpCalc<long double>::VALUE,
+
+    S1_ALIGNMENT          = bsls::AlignmentImpCalc<S1>::VALUE,
+    S2_ALIGNMENT          = bsls::AlignmentImpCalc<S2>::VALUE,
+    S3_ALIGNMENT          = bsls::AlignmentImpCalc<S3>::VALUE,
+    S4_ALIGNMENT          = bsls::AlignmentImpCalc<S4>::VALUE,
+#if (defined(BSLS_PLATFORM_OS_LINUX) || defined(BSLS_PLATFORM_OS_DARWIN)  \
+                              || defined(BSLS_PLATFORM_OS_CYGWIN)) \
+&& defined(BSLS_PLATFORM_CPU_X86)
+    S5_ALIGNMENT          = bsls::AlignmentImpCalc<S5>::VALUE,
+#endif
+    U1_ALIGNMENT          = bsls::AlignmentImpCalc<U1>::VALUE
+};
+
 template <class T>
 inline
 bool samePtrType(T *, void *)
@@ -325,34 +355,6 @@ int main(int argc, char *argv[])
             LOOP_ASSERT(sizeof(bsls::AlignmentImpTag<10>),
                         10 == sizeof(bsls::AlignmentImpTag<10>));
         }
-
-        typedef void (*FuncPtr)();
-
-        enum {
-            CHAR_ALIGNMENT        = bsls::AlignmentImpCalc<char>::VALUE,
-            SHORT_ALIGNMENT       = bsls::AlignmentImpCalc<short>::VALUE,
-            INT_ALIGNMENT         = bsls::AlignmentImpCalc<int>::VALUE,
-            LONG_ALIGNMENT        = bsls::AlignmentImpCalc<long>::VALUE,
-            INT64_ALIGNMENT       = bsls::AlignmentImpCalc<long long>::VALUE,
-            BOOL_ALIGNMENT        = bsls::AlignmentImpCalc<bool>::VALUE,
-            WCHAR_T_ALIGNMENT     = bsls::AlignmentImpCalc<wchar_t>::VALUE,
-            PTR_ALIGNMENT         = bsls::AlignmentImpCalc<void*>::VALUE,
-            FUNC_PTR_ALIGNMENT    = bsls::AlignmentImpCalc<FuncPtr>::VALUE,
-            FLOAT_ALIGNMENT       = bsls::AlignmentImpCalc<float>::VALUE,
-            DOUBLE_ALIGNMENT      = bsls::AlignmentImpCalc<double>::VALUE,
-            LONG_DOUBLE_ALIGNMENT = bsls::AlignmentImpCalc<long double>::VALUE,
-
-            S1_ALIGNMENT          = bsls::AlignmentImpCalc<S1>::VALUE,
-            S2_ALIGNMENT          = bsls::AlignmentImpCalc<S2>::VALUE,
-            S3_ALIGNMENT          = bsls::AlignmentImpCalc<S3>::VALUE,
-            S4_ALIGNMENT          = bsls::AlignmentImpCalc<S4>::VALUE,
-#if (defined(BSLS_PLATFORM_OS_LINUX) || defined(BSLS_PLATFORM_OS_DARWIN)  \
-                                      || defined(BSLS_PLATFORM_OS_CYGWIN)) \
- && defined(BSLS_PLATFORM_CPU_X86)
-            S5_ALIGNMENT          = bsls::AlignmentImpCalc<S5>::VALUE,
-#endif
-            U1_ALIGNMENT          = bsls::AlignmentImpCalc<U1>::VALUE
-        };
 
         if (verbose) cout << "\nTest bsls::AlignmentImpCalc<TYPE>"
                           << "\n=================================" << endl;

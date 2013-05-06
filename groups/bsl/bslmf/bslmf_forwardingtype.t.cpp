@@ -12,6 +12,8 @@
 
 #include <stdlib.h>    // atoi()
 
+#include <cstdio>      // 'printf'
+
 using namespace BloombergLP;
 using namespace std;
 
@@ -206,12 +208,12 @@ int main(int argc, char *argv[])
         ASSERT_SAME(bslmf::ConstForwardingType<int       >::Type, int);
         ASSERT_SAME(bslmf::ConstForwardingType<int&      >::Type, int&);
         if (verbose)
-            P(bslmf::ConstForwardingType<int&>::BSLMF_FORWARDING_TYPE_ID);
+            P((int)bslmf::ConstForwardingType<int&>::BSLMF_FORWARDING_TYPE_ID);
         ASSERT_SAME(bslmf::ConstForwardingType<int const&>::Type, int);
 
         ASSERT_SAME(bslmf::ConstForwardingType<void *>::Type, void *);
         if (verbose)
-            P(bslmf::ConstForwardingType<void *>::BSLMF_FORWARDING_TYPE_ID);
+            P((int)bslmf::ConstForwardingType<void *>::BSLMF_FORWARDING_TYPE_ID);
         ASSERT_SAME(bslmf::ConstForwardingType<void *&>::Type,
                     void *&);
         ASSERT_SAME(bslmf::ConstForwardingType<void volatile *&>::Type,
@@ -229,8 +231,8 @@ int main(int argc, char *argv[])
         ASSERT(0 == bsl::is_array<Class>::value);
         ASSERT_SAME(bslmf::ConstForwardingType<Class   >::Type,const Class&);
         if (verbose)
-            P(bslmf::ConstForwardingType<Class>::BSLMF_FORWARDING_TYPE_ID);
-        if (verbose) P(bslmf::ConstForwardingType<Class>::IS_BASIC_TYPE);
+            P((int)bslmf::ConstForwardingType<Class>::BSLMF_FORWARDING_TYPE_ID);
+        if (verbose) P((int)bslmf::ConstForwardingType<Class>::IS_BASIC_TYPE);
         ASSERT_SAME(bslmf::ConstForwardingType<const Class&>::Type,
                     const Class&);
 
@@ -251,7 +253,7 @@ int main(int argc, char *argv[])
         ASSERT_SAME(bslmf::ConstForwardingType< A>::Type, const char*);
         ASSERT_SAME(bslmf::ConstForwardingType<RA>::Type, char*);
         if (verbose)
-            P(bslmf::ConstForwardingType<RA>::BSLMF_FORWARDING_TYPE_ID);
+            P((int)bslmf::ConstForwardingType<RA>::BSLMF_FORWARDING_TYPE_ID);
       } break;
       case 1: {
         // --------------------------------------------------------------------
@@ -286,8 +288,8 @@ int main(int argc, char *argv[])
         ASSERT(0 == bsl::is_array<Class>::value);
         ASSERT_SAME(bslmf::ForwardingType<Class       >::Type, const Class&);
         if (verbose)
-            P(bslmf::ForwardingType<Class>::BSLMF_FORWARDING_TYPE_ID);
-        if (verbose) P(bslmf::ForwardingType<Class>::IS_BASIC_TYPE);
+            P((int)bslmf::ForwardingType<Class>::BSLMF_FORWARDING_TYPE_ID);
+        if (verbose) P((int)bslmf::ForwardingType<Class>::IS_BASIC_TYPE);
         ASSERT_SAME(bslmf::ForwardingType<const Class&>::Type, const Class&);
 
         ASSERT_SAME(bslmf::ForwardingType<INT >::Type, int);

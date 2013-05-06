@@ -18,6 +18,8 @@ typedef HANDLE thread_t;
 typedef pthread_t thread_t;
 #endif
 
+#include <cstdio>      // 'printf'
+
 using namespace BloombergLP;
 using namespace std;
 
@@ -129,6 +131,13 @@ void aSsErT(bool b, const char *s, int i)
 #define P_  BSLS_BSLTESTUTIL_P_  // P(X) without '\n'.
 #define T_  BSLS_BSLTESTUTIL_T_  // Print a tab (w/o newline).
 #define L_  BSLS_BSLTESTUTIL_L_  // current Line number
+
+//=============================================================================
+//                  NON-STANDARD TEST OUTPUT MACROS
+//-----------------------------------------------------------------------------
+#define NL()  printf("\n");                   // Print newline
+#define P64(X) printf(#X " = %lld\n", (X));   // Print 64-bit integer id & val
+#define P64_(X) printf(#X " = %lld,  ", (X)); // Print 64-bit integer w/o '\n'
 
 //=============================================================================
 //                  GLOBAL TYPEDEFS/CONSTANTS FOR TESTING
@@ -1226,7 +1235,7 @@ int main(int argc, char *argv[])
 
                 x = VAL;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P(EXP);
+                    T_ P_(X); P_(VAL);P(EXP);
                 }
                 LOOP_ASSERT(i, VAL == X);
                 result = ++x;
@@ -1243,7 +1252,7 @@ int main(int argc, char *argv[])
 
                 x =VAL;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P_(EXP);NL();
+                    T_ P_(X); P_(VAL);P_(EXP);NL();
                 }
                 LOOP_ASSERT(i, VAL == X);
                 result = x++;
@@ -1280,12 +1289,12 @@ int main(int argc, char *argv[])
 
                 x = VAL;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P(EXP);
+                    T_ P_(X); P_(VAL);P(EXP);
                 }
                 LOOP_ASSERT(i, VAL == X);
                 result = --x;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P_(EXP); P(result);
+                    T_ P_(X); P_(VAL);P_(EXP); P(result);
                 }
                 LOOP_ASSERT(i, EXP == result);
                 LOOP_ASSERT(i, EXP == X);
@@ -1300,12 +1309,12 @@ int main(int argc, char *argv[])
 
                 x = VAL;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P(EXP);
+                    T_ P_(X); P_(VAL);P(EXP);
                 }
                 LOOP_ASSERT(i, VAL == X);
                 result = x--;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P_(EXP); P(result);
+                    T_ P_(X); P_(VAL);P_(EXP); P(result);
                 }
                 LOOP_ASSERT(i, VAL == result);
                 LOOP_ASSERT(i, EXP == X);
@@ -1341,12 +1350,12 @@ int main(int argc, char *argv[])
 
                 x = VAL;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P_(EXP); NL();
+                    T_ P_(X); P_(VAL);P_(EXP); NL();
                 }
                 LOOP_ASSERT(i, VAL == X);
                 result = ++x;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P_(EXP); P(result);
+                    T_ P_(X); P_(VAL);P_(EXP); P(result);
                 }
                 LOOP_ASSERT(i, EXP == result);
                 LOOP_ASSERT(i, EXP == X);
@@ -1361,12 +1370,12 @@ int main(int argc, char *argv[])
 
                 x = VAL;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P_(EXP);NL();
+                    T_ P_(X); P_(VAL);P_(EXP);NL();
                 }
                 LOOP_ASSERT(i, VAL == X);
                 result = x++;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P_(EXP); P(result);
+                    T_ P_(X); P_(VAL);P_(EXP); P(result);
                 }
                 LOOP_ASSERT(i, VAL == result);
                 LOOP_ASSERT(i, EXP == X);
@@ -1402,12 +1411,12 @@ int main(int argc, char *argv[])
 
                 x = VAL;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P_(EXP); NL();
+                    T_ P_(X); P_(VAL);P_(EXP); NL();
                 }
                 LOOP_ASSERT(i, VAL == X);
                 result = --x;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P_(EXP); P(result);
+                    T_ P_(X); P_(VAL);P_(EXP); P(result);
                 }
                 LOOP_ASSERT(i, EXP == result);
                 LOOP_ASSERT(i, EXP == X);
@@ -1422,12 +1431,12 @@ int main(int argc, char *argv[])
 
                 x = VAL;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P_(EXP);NL();
+                    T_ P_(X); P_(VAL);P_(EXP);NL();
                 }
                 LOOP_ASSERT(i, VAL == X);
                 result = x--;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P_(EXP); P(result);
+                    T_ P_(X); P_(VAL);P_(EXP); P(result);
                 }
                 LOOP_ASSERT(i, VAL == result);
                 LOOP_ASSERT(i, EXP == X);
@@ -1499,7 +1508,7 @@ int main(int argc, char *argv[])
                 result = x.swap(SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL); P(SWPVAL);
+                    T_ P_(X); P_(VAL); P(SWPVAL);
                 }
                 LOOP_ASSERT(i, SWPVAL == X);
                 LOOP_ASSERT(i, VAL    == result );
@@ -1544,7 +1553,7 @@ int main(int argc, char *argv[])
                 result = x.testAndSwap(CMPVAL,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(X);
+                    T_ P_(X);
                     P_(VAL);P_(CMPVAL);P_(SWPVAL); P_(result);
                     P_(EXPVAL);P_(EXPRES); NL();
                 }
@@ -1584,7 +1593,7 @@ int main(int argc, char *argv[])
                 result = x.swap(SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);
+                    T_ P_(X); P_(VAL);
                     P_(SWPVAL); NL();
                 }
                 LOOP_ASSERT(i, SWPVAL == X);
@@ -1628,7 +1637,7 @@ int main(int argc, char *argv[])
                 result = x.testAndSwap(CMPVAL,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(X);
+                    T_ P_(X);
                     P_(VAL);P_(CMPVAL);P_(SWPVAL); P_(result);
                     P_(EXPVAL);P_(EXPRES);NL();
                 }
@@ -1666,7 +1675,7 @@ int main(int argc, char *argv[])
                 result = x.swap(SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL);P_(SWPVAL);NL();
+                    T_ P_(X); P_(VAL);P_(SWPVAL);NL();
                 }
                 LOOP_ASSERT(i, SWPVAL == X);
                 LOOP_ASSERT(i, VAL    == result );
@@ -1714,7 +1723,7 @@ int main(int argc, char *argv[])
                 result = x.testAndSwap(CMPVAL,SWPVAL);
 
                 if (veryVerbose) {
-                    T_(); P_(X);
+                    T_ P_(X);
                     P_(VAL);P_(CMPVAL);P_(SWPVAL);
                     P_(EXPVAL);P_(EXPRES);NL();
                 }
@@ -1786,14 +1795,14 @@ int main(int argc, char *argv[])
 
                 x += VAL;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL); NL();
+                    T_ P_(X); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == X);
 
                 x -= VAL;
 
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL); NL();
+                    T_ P_(X); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, 0 == X);
             }
@@ -1813,7 +1822,7 @@ int main(int argc, char *argv[])
 
                 result = x.add(VAL);
                 if (veryVerbose) {
-                    T_(); P_(X); P_(result); P(VAL);
+                    T_ P_(X); P_(result); P(VAL);
                 }
                 LOOP_ASSERT(i, VAL == X);
                 LOOP_ASSERT(i, VAL == result);
@@ -1856,14 +1865,14 @@ int main(int argc, char *argv[])
 
                 x += AMT;
                 if (veryVerbose) {
-                    T_(); P_(X);
+                    T_ P_(X);
                     P_(BASE); P_(AMT); P_(EXP); NL();
                 }
                 LOOP_ASSERT(i, EXP == X);
 
                 x -= AMT;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(BASE); P_(AMT); P(EXP);
+                    T_ P_(X); P_(BASE); P_(AMT); P(EXP);
                 }
                 LOOP_ASSERT(i, BASE == X);
 
@@ -1884,7 +1893,7 @@ int main(int argc, char *argv[])
 
                 result = x.add(AMT);
                 if (veryVerbose) {
-                    T_(); P_(X);
+                    T_ P_(X);
                     P_(BASE); P_(AMT); P_(EXP); P_(result); NL();
                 }
                 LOOP_ASSERT(i, EXP == result);
@@ -1918,7 +1927,7 @@ int main(int argc, char *argv[])
                 ASSERT(0 == X);
                 x += VAL;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL); NL();
+                    T_ P_(X); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == X);
             }
@@ -1932,7 +1941,7 @@ int main(int argc, char *argv[])
                 ASSERT(0 == X);
                 result = x.add(VAL);
                 if (veryVerbose) {
-                    T_(); P_(X);
+                    T_ P_(X);
                     P_(VAL); P_(result); NL();
                 }
                 LOOP_ASSERT(i, VAL == result);
@@ -1971,8 +1980,8 @@ int main(int argc, char *argv[])
 
                 x += AMT;
                 if (veryVerbose) {
-                    T_(); P_(X); P(BASE);
-                    T_(); P_(AMT); P(EXP);
+                    T_ P_(X); P(BASE);
+                    T_ P_(AMT); P(EXP);
                 }
                 LOOP_ASSERT(i, EXP == X);
             }
@@ -1991,8 +2000,8 @@ int main(int argc, char *argv[])
 
                 result = x.add(AMT);
                 if (veryVerbose) {
-                    T_(); P_(X); P(BASE);
-                    T_(); P_(AMT); P(EXP); NL();
+                    T_ P_(X); P(BASE);
+                    T_ P_(AMT); P(EXP); NL();
                 }
                 LOOP_ASSERT(i, EXP == result);
                 LOOP_ASSERT(i, EXP == X);
@@ -2057,7 +2066,7 @@ int main(int argc, char *argv[])
 
                 z = X.loadRelaxed();
                 if (veryVerbose) {
-                    T_(); P_(X); P_(Y); P_(Z); P(VAL);
+                    T_ P_(X); P_(Y); P_(Z); P(VAL);
                 }
                 LOOP_ASSERT(i, VAL == X);
                 LOOP_ASSERT(i, VAL == Y);
@@ -2092,7 +2101,7 @@ int main(int argc, char *argv[])
 
                 z = X.loadRelaxed();
                 if (veryVerbose) {
-                    T_(); P_(X); P_(Y); P_(Z); P(VAL);
+                    T_ P_(X); P_(Y); P_(Z); P(VAL);
                 }
                 LOOP_ASSERT(i, VAL == X);
                 LOOP_ASSERT(i, VAL == Y);
@@ -2128,7 +2137,7 @@ int main(int argc, char *argv[])
 
                 z = X.loadRelaxed();
                 if (veryVerbose) {
-                    T_(); P_(X); P_(Y); P_(Z); P(VAL);
+                    T_ P_(X); P_(Y); P_(Z); P(VAL);
                 }
                 LOOP_ASSERT(i, VAL == X);
                 LOOP_ASSERT(i, VAL == Y);
@@ -2198,7 +2207,7 @@ int main(int argc, char *argv[])
 
                 x = VAL;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL); NL();
+                    T_ P_(X); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == X);
             }
@@ -2231,7 +2240,7 @@ int main(int argc, char *argv[])
 
                 x = VAL;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL); NL();
+                    T_ P_(X); P_(VAL); NL();
                 }
                 LOOP_ASSERT(i, VAL == X);
             }
@@ -2265,7 +2274,7 @@ int main(int argc, char *argv[])
 
                 x = VAL;
                 if (veryVerbose) {
-                    T_(); P_(X); P_(VAL); NL();
+                    T_ P_(X); P_(VAL); NL();
                 }
 
                 LOOP_ASSERT(i, VAL == X);
@@ -2328,7 +2337,7 @@ int main(int argc, char *argv[])
         ASSERT(1 == lresult);
         ASSERT(1 == mX1);
         if ( veryVeryVerbose) {
-            T_(); P(lresult); NL();
+            T_ P(lresult); NL();
         }
 
         lresult = --mX1;

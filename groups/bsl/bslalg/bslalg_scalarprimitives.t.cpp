@@ -92,6 +92,12 @@ void aSsErT(bool b, const char *s, int i)
 #define L_  BSLS_BSLTESTUTIL_L_  // current Line number
 
 //=============================================================================
+//                      NON-STANDARD TEST OUTPUT MACROS
+//-----------------------------------------------------------------------------
+#define PP(X) printf(#X " = %p\n", (void*)(X));
+                                          // Print ptr identifier and value.
+
+//=============================================================================
 //                  GLOBAL TYPEDEFS/CONSTANTS FOR TESTING
 //-----------------------------------------------------------------------------
 

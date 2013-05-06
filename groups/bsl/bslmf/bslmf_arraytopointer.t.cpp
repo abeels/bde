@@ -12,6 +12,8 @@
 
 #include <stdlib.h>    // atoi()
 
+#include <cstdio>      // 'printf'
+
 using namespace BloombergLP;
 using namespace std;
 
@@ -24,6 +26,7 @@ using namespace std;
 //-----------------------------------------------------------------------------
 // [ 1] bslmf::ArrayToPointer
 // [ 2] USAGE EXAMPLE
+
 //=============================================================================
 //                      STANDARD BDE ASSERT TEST MACRO
 //-----------------------------------------------------------------------------
@@ -61,6 +64,12 @@ void aSsErT(bool b, const char *s, int i)
 #define P_  BSLS_BSLTESTUTIL_P_  // P(X) without '\n'.
 #define T_  BSLS_BSLTESTUTIL_T_  // Print a tab (w/o newline).
 #define L_  BSLS_BSLTESTUTIL_L_  // current Line number
+
+//=============================================================================
+//                    NON-STANDARD BDE TEST DRIVER MACROS
+//-----------------------------------------------------------------------------
+
+#define ASSERT_SAME(X,Y) { ASSERT((1==bsl::is_same<X,Y>::value)); }
 
 //=============================================================================
 //                  GLOBAL TYPEDEFS/CONSTANTS FOR TESTING

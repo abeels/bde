@@ -11,6 +11,8 @@
 
 #include <stdlib.h>           // atoi()
 
+#include <cstdio>      // 'printf'
+
 using namespace BloombergLP;
 using namespace std;
 

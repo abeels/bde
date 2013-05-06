@@ -254,9 +254,11 @@ const int  LARGE_SIZE_VALUE = 10;
 //                      GLOBAL HELPER FUNCTIONS FOR TESTING
 //-----------------------------------------------------------------------------
 
+namespace bsl {
+
 // List-specific print function.
 template <typename TYPE, typename ALLOC>
-void dbg_print(const list<TYPE,ALLOC>& v)
+void debugprint(const list<TYPE,ALLOC>& v)
 {
     if (v.empty()) {
         printf("<empty>");
@@ -265,11 +267,13 @@ void dbg_print(const list<TYPE,ALLOC>& v)
         typedef typename list<TYPE,ALLOC>::const_iterator iter;
         for (iter i = v.begin(); i != v.end(); ++i)
         {
-            dbg_print(*i);
+            bsls::BslTestUtil::callDebugprint(*i, "", "");
         }
     }
     fflush(stdout);
 }
+
+}  // close package namespace
 
 // Return the 'n'th iterator after 'it':
 template <typename ITER>
@@ -526,11 +530,17 @@ bool operator<(const TestType& lhs, const TestType& rhs)
     return lhs.value() < rhs.value();
 }
 
+//namespace BloombergLP {
+//namespace bsl {
+
 // TestType-specific print function.
-void dbg_print(const TestType& rhs) {
+void debugprint(const TestType& rhs) {
     printf("%c", rhs.value());
     fflush(stdout);
 }
+
+//}  // close package namespace
+//}  // close enterprise namespace
 
 // TestType-specific value_of function.
 template <>
@@ -641,7 +651,7 @@ bool operator==(const TestTypeNoAlloc& lhs,
 }
 
 // TestType-specific print function.
-void dbg_print(const TestTypeNoAlloc& rhs) {
+void debugprint(const TestTypeNoAlloc& rhs) {
     printf("%c", rhs.value());
     fflush(stdout);
 }
@@ -834,7 +844,7 @@ bool operator<(const TestTypeOtherAlloc& lhs, const TestTypeOtherAlloc& rhs)
 }
 
 // TestTypeOtherAlloc-specific print function.
-void dbg_print(const TestTypeOtherAlloc& rhs) {
+void debugprint(const TestTypeOtherAlloc& rhs) {
     printf("%c", rhs.value());
     fflush(stdout);
 }
@@ -7031,8 +7041,8 @@ void TestDriver<TYPE,ALLOC>::testGeneratorG()
         const Obj& X = gg(&mX, SPEC);
 
         if (veryVerbose) {
-            printf("\t g = "); dbg_print(g(SPEC)); printf("\n");
-            printf("\tgg = "); dbg_print(X); printf("\n");
+            printf("\t g = "); debugprint(g(SPEC)); printf("\n");
+            printf("\tgg = "); debugprint(X); printf("\n");
         }
         const int TOTAL_BLOCKS_BEFORE = testAllocator.numBlocksTotal();
         const int IN_USE_BYTES_BEFORE = testAllocator.numBytesInUse();

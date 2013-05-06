@@ -95,6 +95,7 @@ using namespace bsl;
 // NOTE: THIS IS A LOW-LEVEL COMPONENT AND MAY NOT USE ANY C++ LIBRARY
 // FUNCTIONS, INCLUDING IOSTREAMS.
 
+int verbose, veryVerbose, veryVeryVerbose;
 static int testStatus = 0;
 
 void aSsErT(bool b, const char *s, int i)

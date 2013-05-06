@@ -8,6 +8,8 @@
 #include <stdlib.h>  // 'calloc', 'realloc', 'atoi'
 #include <string.h>  // 'strcmp'
 
+#include <cstdio>      // 'printf'
+
 // Uncomment next line to test annotations that can cause compiler warnings.
 //#define BSLS_ANNOTATION_TRIGGER_OTHER
 

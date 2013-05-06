@@ -78,6 +78,9 @@ void aSsErT(bool b, const char *s, int i)
 //                      GLOBAL PRINT FUNCTIONS
 //-----------------------------------------------------------------------------
 
+namespace BloombergLP {
+namespace bslalg {
+
 // Iterator-specific print function.
 template <class VALUE_TYPE, int BLOCK_LENGTH>
 void
@@ -97,6 +100,9 @@ debugprint(const bslalg::DequeIterator<VALUE_TYPE, BLOCK_LENGTH>& iter)
         fflush(stdout);
     }
 }
+
+}  // close package namespace
+}  // close enterprise namespace
 
 //=============================================================================
 //                  GLOBAL VARIABLES AND TYPES FOR TESTING

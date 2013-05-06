@@ -12,6 +12,8 @@
 
 #include <cstdlib>              // 'atoi'
 
+#include <cstdio>      // 'printf'
+
 // using namespace BloombergLP;
 
 //=============================================================================
