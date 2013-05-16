@@ -6,7 +6,7 @@ follow the links below:
 
 * [BSL wiki](http://github.com/bloomberg/bsl/wiki)
 * [Quick-Start Guide](http://github.com/bloomberg/bsl/wiki/Getting-Started)
-* [Online Library Documentation](http://bloomberg.github.com/bsl)
+* [Online Library Documentation](http://abeels.github.com/bsl)
 * [BDE Mission Statement](http://github.com/bloomberg/bsl/wiki/Mission-Statement)
 
 License
