@@ -521,14 +521,18 @@ int main(int argc, char *argv[])
 
             if (veryVerbose) printf("\t\t1.12 Comma operator\n");
 
-            // Note that gcc will give a warning if the left-hand side of a
-            // comma operator is an expression with no effect.  The expression
-            // '(tmp == true)', used instead of 'true' below, is sufficiently
-            // complex to avoid the warning.
+            // To be sure that 'BoolType' passes through 'operator,' properly,
+            // we want to place a 'true' value on the left, and a 'BoolType'
+            // with value 'false' on the right. Note that gcc will give a
+            // warning if the left-hand side of a comma operator is an
+            // expression with no effect.  The expression '(tmp = true)', used
+            // instead of 'true' below, has a side-effect, and so avoids the
+            // warning.
 
-            bool tmp = true;
-            bool bx = ((tmp == true), bt);
+            bool tmp = false;
+            bool bx = ((tmp = true), bt);
             ASSERT(!bx);
+            ASSERT(tmp);
 
         }
 
@@ -723,14 +727,18 @@ int main(int argc, char *argv[])
 
             if (veryVerbose) printf("\t\t6.12 Comma operator\n");
 
-            // Note that gcc will give a warning if the left-hand side of a
-            // comma operator is an expression with no effect.  The expression
-            // '(tmp == true)', used instead of 'true' below, is sufficiently
-            // complex to avoid the warning.
+            // To be sure that 'BoolType' passes through 'operator,' properly,
+            // we want to place a 'true' value on the left, and a 'BoolType'
+            // with value 'false' on the right. Note that gcc will give a
+            // warning if the left-hand side of a comma operator is an
+            // expression with no effect.  The expression '(tmp = true)', used
+            // instead of 'true' below, has a side-effect, and so avoids the
+            // warning.
 
-            bool tmp = true;
-            bool bx = ((tmp == true), babel);
+            bool tmp = false;
+            bool bx = ((tmp = true), babel);
             ASSERT(!bx);
+            ASSERT(tmp);
         }
       } break;
       case 1: {
